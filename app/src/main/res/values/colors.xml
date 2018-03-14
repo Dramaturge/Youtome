@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#FF4081</color>
+
+    <color name="statusBarColor">@color/blue</color>
+    <color name="blue">#303F9F</color>
+    <color name="accent_color">#ffc3c3c3</color>
+    <color name="navigationBarColor">@android:color/black</color>
+
+
+    <color name="search_backgroundColor">#f4f5f7</color>
+    <color name="black">#303131</color>
+    <color name="midGray">#6d6e6e</color>
+    <color name="shallowGray">#f5f2f2</color><!--浅灰色-->
+    <color name="toolBar_color">#ffc3c3c3</color><!--浅灰色-->
+    <color name="black_overlay">#66000000</color>
+    <color name="white_text_color">#ffd3d3d3</color>
+    <color name="drawer_text">#e4e4e4</color>
+    <color name="white">#FFFFFF</color>
+    <color name="light_blue">#039BE5</color>
+    <color name="cc_dot_orage">#fff08519</color>
+    <color name="cc_dot_dark">#ffdcd3cb</color>
+    <color name="green">#4CAF50</color>
+
+
+</resources>

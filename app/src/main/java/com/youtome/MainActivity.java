@@ -15,8 +15,9 @@ public class MainActivity extends AppCompatActivity {
 
     private TextView main_title;
     private Fragment[] fragments;
-    private  HomepageFragment homepageFragment;
+    private HomepageFragment homepageFragment;
     private FriendsFragment friendsFragment;
+    private UserFragment userFragment;
     private int lastShowFragment = 0;
 
 
@@ -96,7 +97,8 @@ public class MainActivity extends AppCompatActivity {
 
         homepageFragment = new HomepageFragment();
         friendsFragment =new FriendsFragment();
-        fragments = new Fragment[]{homepageFragment, friendsFragment, homepageFragment};
+        userFragment=new UserFragment();
+        fragments = new Fragment[]{homepageFragment, friendsFragment, userFragment};
         lastShowFragment = 0;
         getSupportFragmentManager()
                 .beginTransaction()
@@ -104,11 +106,6 @@ public class MainActivity extends AppCompatActivity {
                 .show(homepageFragment)
                 .commit();
     }
-
-
-
-
-
 
 
 }

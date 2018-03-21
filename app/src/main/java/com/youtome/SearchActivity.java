@@ -1,7 +1,6 @@
 package com.youtome;
 
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
@@ -21,7 +20,6 @@ import com.youtome.view.RecyclerViewCommonTool.ViewHolder;
 import com.jaeger.library.StatusBarUtil;
 import com.qmuiteam.qmui.widget.grouplist.QMUIGroupListView;
 import java.util.ArrayList;
-import com.youtome.R;
 
 /**
  * 搜索页面
@@ -41,7 +39,7 @@ public class SearchActivity extends AppCompatActivity{
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.act_search_fragment_search);
+        setContentView(R.layout.act_search);
         StatusBarUtil.setColor(SearchActivity.this, getResources().getColor(R.color.shallowGray), 50);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -80,7 +78,7 @@ public class SearchActivity extends AppCompatActivity{
             }
         };
 
-        adapter_class=new CommonAdapter<SearchUser>(SearchActivity.this, R.layout.class_item, checksArrayList){
+        adapter_class=new CommonAdapter<SearchUser>(SearchActivity.this, R.layout.status_item, checksArrayList){
             @Override
             public void onBindViewHolder(ViewHolder viewHolder, int position) {
                 super.onBindViewHolder(viewHolder, position);

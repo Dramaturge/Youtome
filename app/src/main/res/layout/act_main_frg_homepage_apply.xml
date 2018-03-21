@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--Unsure on contents of text, directly using hardcoded string-->
+<!--Dividers of LinearLayout proved invalid on low-api machine, compatible version should be used-->
+<!--不知道为什么会跳转到我的辩题等等的界面上-->
+<android.support.design.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <android.support.design.widget.AppBarLayout
+        android:id="@+id/app_bar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <android.support.design.widget.CollapsingToolbarLayout
+            android:id="@+id/tool_bar_layout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:layout_scrollFlags="scroll|exitUntilCollapsed|snap"
+            app:statusBarScrim="@android:color/transparent"
+            app:collapsedTitleGravity="center"
+            app:collapsedTitleTextAppearance="@style/CollapsedTextStyle"
+            app:contentInsetStart="0dp"
+
+            >
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:gravity="center">
+                <TextView
+                    android:layout_marginTop="10dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:text="报考推荐"
+                    android:textColor="@color/black"
+                    android:textSize="20sp" />
+                <com.rengwuxian.materialedittext.MaterialEditText
+                    android:focusable="true"
+                    android:gravity="center"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:hint="高考分数"
+                    app:met_floatingLabel="normal"
+                    app:met_floatingLabelText="我的高考分数"
+                    app:met_errorColor="#000000"
+                    app:met_primaryColor="#000000"
+                    android:cursorVisible="false"
+                    />
+                <com.rengwuxian.materialedittext.MaterialEditText
+                    android:gravity="center"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:hint="我所在的地区"
+                    app:met_floatingLabel="normal"
+                    app:met_floatingLabelText="我所在的地区"
+                    app:met_errorColor="#000000"
+                    app:met_primaryColor="#000000"
+                    android:cursorVisible="false"
+                    />
+                <com.rengwuxian.materialedittext.MaterialEditText
+                    android:gravity="center"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:hint="我想要报考的专业"
+                    app:met_floatingLabel="normal"
+                    app:met_floatingLabelText="我想要报考的专业"
+                    app:met_errorColor="#000000"
+                    app:met_primaryColor="#000000"
+                    android:cursorVisible="false"
+                    />
+                <RadioGroup
+                    android:id="@+id/rg_sex"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center"
+                    android:theme="@style/My_CheckBox"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="10dp">
+                    <RadioButton
+                        android:id="@+id/rb_Male"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="文科"
+                        android:textSize="18sp"
+                        android:textColor="@color/midGray"
+                        android:layout_marginRight="10dp"/>
+
+                    <RadioButton
+                        android:id="@+id/rb_FeMale"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="理科"
+                        android:textSize="18sp"
+                        android:textColor="@color/midGray"
+                        android:checked="true"/>
+                </RadioGroup>
+
+                <com.qmuiteam.qmui.widget.roundwidget.QMUIRoundButton
+                    android:id="@+id/test1"
+                    android:layout_width="200dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:paddingBottom="10dp"
+                    android:paddingLeft="16dp"
+                    android:paddingRight="16dp"
+                    android:paddingTop="10dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:text="查询"
+                    android:layout_marginBottom="?attr/actionBarSize"
+                    app:qmui_isRadiusAdjustBounds="true"
+                    app:qmui_backgroundColor="@color/black"
+                    android:textColor="@color/gray_theme"
+                    app:qmui_borderColor="@color/gray_theme"
+                    />
+
+            </LinearLayout>
+
+            <android.support.v7.widget.Toolbar
+                android:id="@+id/apply_tool_bar"
+                android:layout_width="match_parent"
+                app:contentInsetStart="0dp"
+                android:layout_height="?attr/actionBarSize">
+            </android.support.v7.widget.Toolbar>
+
+        </android.support.design.widget.CollapsingToolbarLayout>
+
+    </android.support.design.widget.AppBarLayout>
+
+    <android.support.v4.widget.NestedScrollView
+        android:id="@+id/scroll_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fadingEdge="vertical"
+        android:scrollbars="vertical"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/apply_recycler"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            >
+        </android.support.v7.widget.RecyclerView>
+
+    </android.support.v4.widget.NestedScrollView>
+
+</android.support.design.widget.CoordinatorLayout>

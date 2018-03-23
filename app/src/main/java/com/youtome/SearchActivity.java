@@ -1,6 +1,7 @@
 package com.youtome;
 
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
@@ -12,6 +13,9 @@ import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
+
 import com.youtome.view.ClearEditText;
 
 import com.youtome.bean.SearchUser;
@@ -19,6 +23,9 @@ import com.youtome.view.RecyclerViewCommonTool.CommonAdapter;
 import com.youtome.view.RecyclerViewCommonTool.ViewHolder;
 import com.jaeger.library.StatusBarUtil;
 import com.qmuiteam.qmui.widget.grouplist.QMUIGroupListView;
+
+import com.youtome.view.superadapter.Search;
+
 import java.util.ArrayList;
 
 /**
@@ -26,6 +33,8 @@ import java.util.ArrayList;
 
  * */
 public class SearchActivity extends AppCompatActivity{
+
+
 
 
     ClearEditText mClearEditText;
@@ -49,9 +58,6 @@ public class SearchActivity extends AppCompatActivity{
         mClearEditText=(ClearEditText)findViewById(R.id.clearEditText);
         mAboutGroupListView=(QMUIGroupListView)findViewById(R.id.about_list);
         mRecyclerView=(RecyclerView)findViewById(R.id.act_search_rv);
-
-
-
         mRecyclerView.setLayoutManager(new LinearLayoutManager(SearchActivity.this));
 //        mRecyclerView.setLayoutManager(new GridLayoutManager(getActivity(), 2));
 //        mRecyclerView.setLayoutManager(new StaggeredGridLayoutManager(2,StaggeredGridLayoutManager.VERTICAL));

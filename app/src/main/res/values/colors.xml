@@ -9,6 +9,9 @@
     <color name="accent_color">#ffc3c3c3</color>
     <color name="navigationBarColor">@android:color/black</color>
 
+    <color name="color1">#3f5352</color>
+    <color name="color2">#818184</color>
+    <color name="color3">#FF4081</color>
 
     <color name="search_backgroundColor">#f4f5f7</color>
     <color name="black">#303131</color>

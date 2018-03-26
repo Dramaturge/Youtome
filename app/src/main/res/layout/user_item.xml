@@ -56,7 +56,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:gravity="center"
-                    android:id="@+id/type_top_title6" />
+                    android:id="@+id/name" />
                 <TextView
                     android:text="西安电子科技大学"
                     android:textSize="16sp"
@@ -64,7 +64,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:gravity="center"
-                    android:id="@+id/type_top_title1" />
+                    android:id="@+id/school" />
                 <TextView
                     android:text="1602019"
                     android:textSize="16sp"
@@ -72,7 +72,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:gravity="center"
-                    android:id="@+id/type_top_title" />
+                    android:id="@+id/grade" />
 
             </LinearLayout>
         </LinearLayout>

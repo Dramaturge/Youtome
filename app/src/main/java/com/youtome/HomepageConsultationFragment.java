@@ -47,11 +47,11 @@ public class HomepageConsultationFragment extends Fragment implements View.OnCli
         rootView = inflater.inflate(R.layout.act_main_frg_homepage_consultation, container, false);
 
 
-        slideShowView=(SlideShowView)this.rootView.findViewById(R.id.homepage_slide_show);
-        String img = "http://pic16.nipic.com/20110921/7247268_215811562102_2.jpg";
-        String[] imgs= new String[]{img,img,img,img,img,img,img};
-        slideShowView.setImageUrls(imgs);
-        slideShowView.startPlay();
+//        slideShowView=(SlideShowView)this.rootView.findViewById(R.id.homepage_slide_show);
+//        String img = "http://pic16.nipic.com/20110921/7247268_215811562102_2.jpg";
+//        String[] imgs= new String[]{img,img,img,img,img,img,img};
+//        slideShowView.setImageUrls(imgs);
+//        slideShowView.startPlay();
 
         statusArrayList=new ArrayList<Status>();
         statusArrayList.add(new Status());

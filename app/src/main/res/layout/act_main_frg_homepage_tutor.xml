@@ -17,7 +17,7 @@
             android:id="@+id/tool_bar_layout"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            app:layout_scrollFlags="scroll|exitUntilCollapsed|snap"
+            app:layout_scrollFlags="scroll|exitUntilCollapsed"
             app:statusBarScrim="@android:color/transparent"
             app:collapsedTitleGravity="center"
             app:collapsedTitleTextAppearance="@style/CollapsedTextStyle"
@@ -224,6 +224,7 @@
             android:id="@+id/tutor_recycler"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:nestedScrollingEnabled="false"
             >
         </android.support.v7.widget.RecyclerView>
 

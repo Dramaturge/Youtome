@@ -4,12 +4,17 @@ import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.content.ContextCompat;
+import android.support.v4.view.GravityCompat;
 import android.support.v7.app.AppCompatActivity;
+import android.view.KeyEvent;
+import android.view.View;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.jaeger.library.StatusBarUtil;
 import com.luseen.luseenbottomnavigation.BottomNavigation.BottomNavigationItem;
 import com.luseen.luseenbottomnavigation.BottomNavigation.OnBottomNavigationItemClickListener;
+import com.youtome.app.AppApplication;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -26,6 +31,10 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.act_main);
+        PrefTools.setBoolean(AppApplication.getContext(), "is_login", true);
+
+
+
         StatusBarUtil.setColor(MainActivity.this, getResources().getColor(R.color.gray_theme), 20);
 
         bottomNavigationView = (com.luseen.luseenbottomnavigation.BottomNavigation.BottomNavigationView) findViewById(R.id.navigation);
@@ -129,5 +138,25 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
+    private long mExitTime;
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+        // TODO Auto-generated method stub
+        if (keyCode == KeyEvent.KEYCODE_BACK) {
+            if ((System.currentTimeMillis() - mExitTime) > 2000) {
+                    Toast.makeText(this,"再按一次退出",
+                            Toast.LENGTH_SHORT).show();
+                    mExitTime = System.currentTimeMillis();
+                } else {
+                    finish();
+                }
+            return true;
+        }
+        //拦截MENU按钮事件，让他无任何操作
+        if (keyCode == KeyEvent.KEYCODE_MENU) {
+            return true;
+        }
+        return super.onKeyDown(keyCode, event);
+    }
 
 }

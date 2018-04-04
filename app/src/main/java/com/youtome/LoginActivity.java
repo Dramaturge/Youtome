@@ -88,6 +88,7 @@ public class LoginActivity extends AppCompatActivity {
 
                                         Intent intent = new Intent(LoginActivity.this, MainActivity.class);
                                         startActivity(intent);
+                                        finish();
                                     }else{
                                         Toast toast=Toast.makeText(getApplicationContext(), "登录失败，请检查用户名、密码", Toast.LENGTH_SHORT);
                                         toast.show();
@@ -107,6 +108,7 @@ public class LoginActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Intent intent = new Intent(LoginActivity.this, RegisterActivity.class);
                 startActivity(intent);
+
             }
         });
     }

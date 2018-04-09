@@ -65,7 +65,10 @@ public class SearchActivity extends AppCompatActivity{
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.act_search);
-        StatusBarUtil.setColor(SearchActivity.this, getResources().getColor(R.color.shallowGray), 50);
+        StatusBarUtil.setTranslucentForCoordinatorLayout(SearchActivity.this,50);
+
+
+//        StatusBarUtil.setColor(SearchActivity.this, getResources().getColor(R.color.shallowGray), 100);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
 
         final TextView text=(TextView) findViewById(R.id.text);
@@ -171,7 +174,7 @@ public class SearchActivity extends AppCompatActivity{
                                                         }
                                                         @Override
                                                         public void convert(final ViewHolder holder, final Searchsuccess.Detail user) {
-                                                            TextView name = holder.getView(R.id.name);
+                                                            TextView name = holder.getView(R.id.name);//
                                                             TextView grade = holder.getView(R.id.grade);
                                                             TextView school = holder.getView(R.id.school);
 

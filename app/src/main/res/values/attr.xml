@@ -2,4 +2,11 @@
 <resources>
     <attr name="app_primary_color" format="color"/> <!-- topbar -->
     <attr name="app_content_bg_color" format="color"/> <!-- content-->
+
+    <declare-styleable name="SelectableTextView">
+        <attr name="textJustify" format="boolean"/>
+        <attr name="forbiddenActionMenu" format="boolean"/>
+        <attr name="textHeightColor" format="color"/>
+    </declare-styleable>
+
 </resources>

@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/read_dl_slide"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:fitsSystemWindows="true"
+    >
+    <android.support.design.widget.AppBarLayout
+        android:id="@+id/app_bar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#f4f4f4"
+        >
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbar"
+            app:title="搜索"
+            android:elevation="20dp"
+            app:navigationIcon="@mipmap/gray_back_mipmap"
+            android:layout_width="match_parent"
+            android:layout_height="56dp">
+            <TextView
+                android:text='详情'
+                android:textSize="20dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+        </android.support.v7.widget.Toolbar>
+    </android.support.design.widget.AppBarLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <!--阅读页面-->
+
+        <com.youtome.view.SelectableTextView
+            android:id="@+id/read_pv_page"
+            android:text="壬戌之秋，七月既望，苏子与客泛舟游于赤壁之下。清风徐来，水波不兴。举酒属客，诵明月之诗，歌窈窕之章。少焉，月出于东山之上，徘徊于斗牛之间。白露横江，水光接天。纵一苇之所如，凌万顷之茫然。浩浩乎如冯虚御风，而不知其所止；飘飘乎如遗世独立，羽化而登仙。"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:textColor="@color/black"
+            android:clickable="true"
+            android:textSize="17dp"
+
+            android:lineSpacingMultiplier="1.5"
+            android:padding="10dp"
+            android:visibility="visible"
+            app:forbiddenActionMenu="false"
+            app:textJustify="true"
+            />
+    </LinearLayout>
+
+</LinearLayout>

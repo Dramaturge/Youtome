@@ -33,14 +33,14 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.act_main);
         PrefTools.setBoolean(AppApplication.getContext(), "is_login", true);
 
+        StatusBarUtil.setTranslucentForCoordinatorLayout(MainActivity.this,50);
 
-
-        StatusBarUtil.setColor(MainActivity.this, getResources().getColor(R.color.gray_theme), 20);
+//        StatusBarUtil.setColor(MainActivity.this, getResources().getColor(R.color.gray_theme), 100);
 
         bottomNavigationView = (com.luseen.luseenbottomnavigation.BottomNavigation.BottomNavigationView) findViewById(R.id.navigation);
 
-        int[] image = {R.drawable.ic_home_black_24dp, R.drawable.ic_dashboard_black_24dp,
-                R.drawable.ic_notifications_black_24dp};
+        int[] image = {R.drawable.homepage, R.drawable.friend_circle,
+                R.drawable.me};
         int[] color = {ContextCompat.getColor(this, R.color.green), ContextCompat.getColor(this, R.color.qmui_config_color_red),
                 ContextCompat.getColor(this, R.color.blue)};
 
@@ -86,6 +86,7 @@ public class MainActivity extends AppCompatActivity {
                         if (lastShowFragment != 2) {
                             switchFrament(lastShowFragment, 2);
                             lastShowFragment = 2;
+
                         }
                         break;
                 }

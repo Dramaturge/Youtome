@@ -44,13 +44,14 @@
                     android:layout_height="wrap_content"
                     android:gravity="center">
                     <LinearLayout
+                        android:id="@+id/yuwen"
                         android:orientation="vertical"
                         android:gravity="center"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_margin="30dp">
                         <ImageView
-                            android:src="@mipmap/black_mipmap"
+                            android:src="@mipmap/yuwen"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content" />
                         <TextView
@@ -59,13 +60,14 @@
                             android:layout_height="wrap_content" />
                     </LinearLayout>
                     <LinearLayout
+                        android:id="@+id/shuxue"
                         android:orientation="vertical"
                         android:gravity="center"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_margin="30dp">
                         <ImageView
-                            android:src="@mipmap/black_mipmap"
+                            android:src="@mipmap/shuxue"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content" />
                         <TextView
@@ -74,13 +76,14 @@
                             android:layout_height="wrap_content" />
                     </LinearLayout>
                     <LinearLayout
+                        android:id="@+id/yingyu"
                         android:orientation="vertical"
                         android:gravity="center"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_margin="30dp">
                         <ImageView
-                            android:src="@mipmap/black_mipmap"
+                            android:src="@mipmap/yingyu"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content" />
                         <TextView
@@ -95,6 +98,7 @@
                     android:layout_height="wrap_content"
                     android:gravity="center">
                     <LinearLayout
+                        android:id="@+id/wuli"
                         android:orientation="vertical"
                         android:gravity="center"
                         android:layout_width="wrap_content"
@@ -102,7 +106,7 @@
                         android:layout_marginLeft="30dp"
                         android:layout_marginRight="30dp">
                         <ImageView
-                            android:src="@mipmap/black_mipmap"
+                            android:src="@mipmap/wuli"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content" />
                         <TextView
@@ -111,6 +115,7 @@
                             android:layout_height="wrap_content" />
                     </LinearLayout>
                     <LinearLayout
+                        android:id="@+id/huaxue"
                         android:orientation="vertical"
                         android:gravity="center"
                         android:layout_width="wrap_content"
@@ -118,7 +123,7 @@
                         android:layout_marginLeft="30dp"
                         android:layout_marginRight="30dp">
                         <ImageView
-                            android:src="@mipmap/black_mipmap"
+                            android:src="@mipmap/huaxue"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content" />
                         <TextView
@@ -127,6 +132,7 @@
                             android:layout_height="wrap_content" />
                     </LinearLayout>
                     <LinearLayout
+                        android:id="@+id/shengwu"
                         android:orientation="vertical"
                         android:gravity="center"
                         android:layout_width="wrap_content"
@@ -134,7 +140,7 @@
                         android:layout_marginLeft="30dp"
                         android:layout_marginRight="30dp">
                         <ImageView
-                            android:src="@mipmap/black_mipmap"
+                            android:src="@mipmap/shengwu"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content" />
                         <TextView
@@ -149,13 +155,14 @@
                     android:layout_height="wrap_content"
                     android:gravity="center">
                     <LinearLayout
+                        android:id="@+id/lishi"
                         android:orientation="vertical"
                         android:gravity="center"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_margin="30dp">
                         <ImageView
-                            android:src="@mipmap/black_mipmap"
+                            android:src="@mipmap/lishi"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content" />
                         <TextView
@@ -164,13 +171,14 @@
                             android:layout_height="wrap_content" />
                     </LinearLayout>
                     <LinearLayout
+                        android:id="@+id/zhengzhi"
                         android:orientation="vertical"
                         android:gravity="center"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_margin="30dp">
                         <ImageView
-                            android:src="@mipmap/black_mipmap"
+                            android:src="@mipmap/zhengzhi"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content" />
                         <TextView
@@ -179,6 +187,7 @@
                             android:layout_height="wrap_content" />
                     </LinearLayout>
                     <LinearLayout
+                        android:id="@+id/dili"
                         android:orientation="vertical"
                         android:gravity="center"
                         android:layout_width="wrap_content"
@@ -186,8 +195,7 @@
                         android:layout_margin="30dp">
 
                         <ImageView
-                            android:id="@+id/iv_periodical1"
-                            android:src="@mipmap/black_mipmap"
+                            android:src="@mipmap/dili"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content" />
                         <TextView

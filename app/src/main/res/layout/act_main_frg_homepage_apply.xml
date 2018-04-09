@@ -22,7 +22,6 @@
             app:collapsedTitleGravity="center"
             app:collapsedTitleTextAppearance="@style/CollapsedTextStyle"
             app:contentInsetStart="0dp"
-
             >
             <LinearLayout
                 android:layout_width="match_parent"
@@ -38,6 +37,7 @@
                     android:textColor="@color/black"
                     android:textSize="20sp" />
                 <com.rengwuxian.materialedittext.MaterialEditText
+                    android:id="@+id/met_score"
                     android:focusable="true"
                     android:gravity="center"
                     android:layout_width="wrap_content"
@@ -50,6 +50,7 @@
                     android:cursorVisible="false"
                     />
                 <com.rengwuxian.materialedittext.MaterialEditText
+                    android:id="@+id/met_region"
                     android:gravity="center"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -61,6 +62,7 @@
                     android:cursorVisible="false"
                     />
                 <com.rengwuxian.materialedittext.MaterialEditText
+                    android:id="@+id/met_major"
                     android:gravity="center"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -72,7 +74,7 @@
                     android:cursorVisible="false"
                     />
                 <RadioGroup
-                    android:id="@+id/rg_sex"
+                    android:id="@+id/rg_subject"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
@@ -81,7 +83,7 @@
                     android:layout_marginTop="10dp"
                     android:layout_marginBottom="10dp">
                     <RadioButton
-                        android:id="@+id/rb_Male"
+                        android:id="@+id/rb_arts"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="文科"
@@ -90,7 +92,7 @@
                         android:layout_marginRight="10dp"/>
 
                     <RadioButton
-                        android:id="@+id/rb_FeMale"
+                        android:id="@+id/rb_sciences"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="理科"
@@ -100,7 +102,7 @@
                 </RadioGroup>
 
                 <com.qmuiteam.qmui.widget.roundwidget.QMUIRoundButton
-                    android:id="@+id/test1"
+                    android:id="@+id/btn_query"
                     android:layout_width="200dp"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"

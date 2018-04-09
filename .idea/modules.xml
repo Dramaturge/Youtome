@@ -2,7 +2,8 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/Youtome.iml" filepath="$PROJECT_DIR$/Youtome.iml" />
+      <module fileurl="file://D:\Project\Youtome2\Youtome.iml" filepath="D:\Project\Youtome2\Youtome.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Youtome2.iml" filepath="$PROJECT_DIR$/Youtome2.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
     </modules>
   </component>

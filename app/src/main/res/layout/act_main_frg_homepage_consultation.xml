@@ -22,15 +22,21 @@
                     android:layout_height="10dp"
                     android:background="@color/gray_theme"></View>
 
-                <com.youtome.view.SlideShowView.SlideShowView
-                    android:id="@+id/homepage_slide_show"
+                <com.bigkoo.convenientbanner.ConvenientBanner
+                    android:id="@+id/convenientBanner"
                     android:layout_width="match_parent"
-                    android:layout_height="200dp" />
+                    android:layout_height="200dp"
+                    app:canLoop="true"
+                />
 
                 <View
                     android:layout_width="match_parent"
                     android:layout_height="10dp"
                     android:background="@color/gray_theme"></View>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/homepage1_test"/>
                 <android.support.v7.widget.RecyclerView
                     android:id="@+id/homepage_recycler"
                     android:layout_width="match_parent"

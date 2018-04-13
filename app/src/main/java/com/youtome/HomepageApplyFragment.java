@@ -1,17 +1,24 @@
 package com.youtome;
 
 import android.content.Intent;
+import android.content.res.Resources;
+import android.graphics.drawable.Drawable;
+import android.net.Uri;
 import android.os.Bundle;
+import android.support.annotation.Nullable;
 import android.support.design.widget.AppBarLayout;
 import android.support.design.widget.CollapsingToolbarLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.content.ContextCompat;
+import android.support.v7.widget.CardView;
 import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
@@ -19,9 +26,11 @@ import android.widget.TextView;
 
 import com.qmuiteam.qmui.widget.roundwidget.QMUIRoundButton;
 import com.rengwuxian.materialedittext.MaterialEditText;
+import com.youtome.bean.Article;
 import com.youtome.bean.Status;
 import com.youtome.view.RecyclerViewCommonTool.CommonAdapter;
 import com.youtome.view.RecyclerViewCommonTool.ViewHolder;
+import com.youtome.view.superadapter.University3;
 
 import java.util.ArrayList;
 
@@ -38,9 +47,9 @@ public class HomepageApplyFragment extends Fragment implements View.OnClickListe
     private CollapsingToolbarLayoutState state;
     private CollapsingToolbarLayout collapsingToolbarLayout;
     private AppBarLayout app_bar;
-    private  CommonAdapter adapter;
+    private CommonAdapter adapter;
 
-    private ArrayList<Status> statusArrayList;
+    private ArrayList<University3.Detail> UniversityArrayList;
     private com.rengwuxian.materialedittext.MaterialEditText met_score;
     private com.rengwuxian.materialedittext.MaterialEditText met_region;
     private com.rengwuxian.materialedittext.MaterialEditText met_major;
@@ -49,7 +58,10 @@ public class HomepageApplyFragment extends Fragment implements View.OnClickListe
     private android.widget.RadioGroup rg_subject;
     private com.qmuiteam.qmui.widget.roundwidget.QMUIRoundButton btn_query;
 
-
+    static public String Fenshu;
+    static public String Diqu;
+    static public String Zhuanye;
+    static public String Wenke;
 
     private enum CollapsingToolbarLayoutState {
         EXPANDED,
@@ -99,12 +111,11 @@ public class HomepageApplyFragment extends Fragment implements View.OnClickListe
 
 
 
-        statusArrayList=new ArrayList<Status>();
-        statusArrayList.add(new Status());
-        statusArrayList.add(new Status());
-        statusArrayList.add(new Status());
-        statusArrayList.add(new Status());
-        statusArrayList.add(new Status());
+        UniversityArrayList=new ArrayList<University3.Detail>();
+        UniversityArrayList.add(new University3.Detail("西安电子科技大学 211 研","陕西","本科一批",R.drawable.xidian));
+        UniversityArrayList.add(new University3.Detail("西北工业大学 985 211 研","陕西","本科一批",R.drawable.xigong));
+        UniversityArrayList.add(new University3.Detail("西安交通大学 985  211 研","陕西","本科一批",R.drawable.xijiao));
+        UniversityArrayList.add(new University3.Detail("西北大学 211","陕西","本科一批",R.drawable.xibei));
 
         mRecyclerView= (RecyclerView) rootView.findViewById(R.id.apply_recycler);
         mRecyclerView.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL, false));
@@ -112,42 +123,67 @@ public class HomepageApplyFragment extends Fragment implements View.OnClickListe
         mDecoration.setDrawable(ContextCompat.getDrawable(getContext(), R.drawable.divider_bg));
         mRecyclerView.addItemDecoration(mDecoration);
 
-
-        adapter=new CommonAdapter<Status>(getContext(), R.layout.article_item, statusArrayList){
+        adapter=new CommonAdapter<University3.Detail>(getContext(),
+                R.layout.university_item, UniversityArrayList){
             @Override
             public void onBindViewHolder(ViewHolder viewHolder, int position) {
                 super.onBindViewHolder(viewHolder, position);
             }
-
             @Override
-            public void convert(ViewHolder holder, Status categoryChapter) {
-                LinearLayout skip_to_others_homepage=holder.getView(R.id.skip_to_others_homepage);
-                CircleImageView profile_image = holder.getView(R.id.profile_image);//头像
-                TextView tv_status_publisher =holder.getView(R.id.tv_status_publisher);//发布人
-                TextView tv_status_publish_time =holder.getView(R.id.tv_status_publish_time);//发布时间
-                TextView tv_status_brief =holder.getView(R.id.tv_status_content);//内容
-                TextView tv_status_likes =holder.getView(R.id.tv_status_likes);//赞同数
+            public void convert(final ViewHolder holder, final University3.Detail data) {
+                TextView university = holder.getView(R.id.university);
+                TextView location = holder.getView(R.id.location);
+                TextView batch = holder.getView(R.id.batch);
+                ImageView logo=holder.getView(R.id.university_logo);
 
-                skip_to_others_homepage.setOnClickListener(new View.OnClickListener() {
+                CardView cardView=holder.getView(R.id.cardlist_item);
+                cardView.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
-                        Intent intent=new Intent(getContext(),OtherHomepageActivity.class);//跳转到发布人的个人主页
+                        Uri uri = Uri.parse("https://baike.baidu.com/item/%E8%A5%BF%E5%AE%89%E7%94%B5%E5%AD%90%E7%A7%91%E6%8A%80%E5%A4%A7%E5%AD%A6/160910?fr=aladdin");
+                        Intent intent = new Intent(Intent.ACTION_VIEW, uri);
                         startActivity(intent);
                     }
                 });
 
-
-
-
+                university.setText(data.getUniversity());
+                location.setText(data.getLocation());
+                batch.setText(data.getBatch());
+                Drawable drawable=getResources().getDrawable(data.getHeader());
+                if(drawable!=null){
+                    logo.setImageDrawable(drawable);
+                }
 
             }
-
-
         };
+
 
         mRecyclerView.setAdapter(adapter);
 
         return rootView;
+    }
+    @Override
+    public void onActivityCreated(@Nullable Bundle savedInstanceState) {
+        super.onActivityCreated(savedInstanceState);
+        btn_query=(com.qmuiteam.qmui.widget.roundwidget.QMUIRoundButton) getActivity().findViewById(R.id.btn_query);
+        btn_query.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                rb_arts=(RadioButton) getActivity().findViewById(R.id.rb_arts);
+                rb_sciences=(RadioButton) getActivity().findViewById(R.id.rb_sciences);
+                met_score=(MaterialEditText) getActivity().findViewById(R.id.met_score);
+                met_region=(MaterialEditText)  getActivity().findViewById(R.id.met_region);
+                met_major=(MaterialEditText) getActivity().findViewById(R.id.met_major);
+                if(rb_arts.isChecked()==true){
+                    Wenke="文科";
+                }else {Wenke="理科";}
+                Fenshu=met_score.getText().toString();
+                Diqu=met_region.getText().toString();
+                Zhuanye=met_major.getText().toString();
+                Intent intent=new Intent(getContext(), TestActivity.class)  ;
+                startActivity(intent);
+            }
+        });
     }
     @Override
     public void onClick(View v) {

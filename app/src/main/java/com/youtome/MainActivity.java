@@ -7,6 +7,7 @@ import android.support.v4.content.ContextCompat;
 import android.support.v4.view.GravityCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.view.KeyEvent;
+import android.view.Menu;
 import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -38,7 +39,7 @@ public class MainActivity extends AppCompatActivity {
 //        StatusBarUtil.setColor(MainActivity.this, getResources().getColor(R.color.gray_theme), 100);
 
         bottomNavigationView = (com.luseen.luseenbottomnavigation.BottomNavigation.BottomNavigationView) findViewById(R.id.navigation);
-
+        bottomNavigationView.selectTab(0);
         int[] image = {R.drawable.homepage, R.drawable.friend_circle,
                 R.drawable.me};
         int[] color = {ContextCompat.getColor(this, R.color.green), ContextCompat.getColor(this, R.color.qmui_config_color_red),

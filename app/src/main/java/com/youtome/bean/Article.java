@@ -1,32 +1,22 @@
 package com.youtome.bean;
-
-/**
- * Created by Chliao on 2018/3/21.
- */
-
-public class Status {
+public class Article {
     int header;
     String publisher;
     String publish_time;
+    String title;
     String content;
     String like_number;
-    String transpond_number;
-    String comments_number;
-    public Status(){
 
-    }
-    public Status(int header,String publisher,String publish_time,
-                  String content,String like_number,String transpond_number,
-                  String comments_number){
+    public Article(){}
+    public Article(int header,String publisher,String publish_time,String title,String content,String like_number){
         this.header=header;
         this.publisher=publisher;
         this.publish_time=publish_time;
+        this.title=title;
         this.content=content;
         this.like_number=like_number;
-        this.transpond_number=transpond_number;
-        this.comments_number=comments_number;
-        this.header=header;
     }
+
 
     public int getHeader() {
         return header;
@@ -40,19 +30,15 @@ public class Status {
         return publish_time;
     }
 
+    public String getTitle() {
+        return title;
+    }
+
     public String getContent() {
         return content;
     }
 
     public String getLike_number() {
         return like_number;
-    }
-
-    public String getTranspond_number() {
-        return transpond_number;
-    }
-
-    public String getComments_number() {
-        return comments_number;
     }
 }

@@ -28,7 +28,7 @@
             >
             <ImageView
                 android:id="@+id/collapsing_bar_background_image"
-                android:src="@drawable/demo"
+                android:src="@drawable/bg2"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:scaleType="centerCrop"
@@ -50,7 +50,7 @@
         android:id="@+id/profile_image"
         android:layout_width="96dp"
         android:layout_height="96dp"
-        android:src="@drawable/default_round_head"
+        android:src="@drawable/header2"
         android:translationZ="10dp"
         app:layout_anchor="@id/scroll_view"
         app:layout_anchorGravity="top|center_horizontal"/>
@@ -83,7 +83,7 @@
                     android:layout_height="wrap_content"
                     android:layout_centerHorizontal="true"
                     android:layout_marginTop="50dp"
-                    android:text="游世隆"
+                    android:text="刘一林(老师)"
                     android:textColor="@color/black"
                     android:textSize="20sp" />
 
@@ -97,14 +97,14 @@
                     android:gravity="center_vertical"
                     android:maxEms="50"
                     android:maxLines="3"
-                    android:text="个性签名"
+                    android:text="如果你想把剑挥出去，就要把心里的事放下"
                     android:textColor="@color/black" />
                 <TextView
                     android:id="@+id/personal_brief"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_centerHorizontal="true"
-                    android:text="西安电子科技大学，物理与光电工程，大二年段"
+                    android:text="西安电子科技大学，物理与光电工程，本科14级"
                     android:textColor="@color/midGray" />
             </LinearLayout>
 

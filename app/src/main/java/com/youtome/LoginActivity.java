@@ -6,14 +6,15 @@ import android.graphics.Typeface;
 import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.KeyEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import com.google.gson.Gson;
+import com.youtome.app.AppApplication;
 import com.youtome.view.superadapter.Signin;
 
 import okhttp3.FormBody;
@@ -23,8 +24,9 @@ import okhttp3.RequestBody;
 import okhttp3.Response;
 
 public class LoginActivity extends AppCompatActivity {
-    static public String Token;
-    static public String Username;
+
+    private String Username;
+    private  String Token;
     private SharedPreferences pref;
     private CheckBox mRemember;
     private String Password;
@@ -79,7 +81,8 @@ public class LoginActivity extends AppCompatActivity {
                             final String status = user.getStatus();
                             final String reason = user.getReason();
                             Token = user.getToken();
-
+                            PrefTools.setString(AppApplication.getContext(),"User",Username);
+                            PrefTools.setString(AppApplication.getContext(),"Token",Token);
                             runOnUiThread(new Runnable() {
                                 @Override
                                 public void run() {
@@ -111,6 +114,27 @@ public class LoginActivity extends AppCompatActivity {
 
             }
         });
+
     }
 
+    private long mExitTime;
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+        // TODO Auto-generated method stub
+        if (keyCode == KeyEvent.KEYCODE_BACK) {
+            if ((System.currentTimeMillis() - mExitTime) > 2000) {
+                Toast.makeText(this,"再按一次退出",
+                        Toast.LENGTH_SHORT).show();
+                mExitTime = System.currentTimeMillis();
+            } else {
+                finish();
+            }
+            return true;
+        }
+        //拦截MENU按钮事件，让他无任何操作
+        if (keyCode == KeyEvent.KEYCODE_MENU) {
+            return true;
+        }
+        return super.onKeyDown(keyCode, event);
+    }
 }

@@ -12,7 +12,6 @@ import com.youtome.app.AppApplication;
 public class Welcome extends BaseActivity {
     private AlphaAnimation start_anima;
     View view;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         // TODO Auto-generated method stub

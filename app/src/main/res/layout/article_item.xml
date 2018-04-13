@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-    <LinearLayout
+
+<LinearLayout
         xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto"
         android:layout_width="match_parent"
@@ -11,6 +12,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="horizontal"
+            android:foreground="?android:attr/selectableItemBackground"
             >
             <de.hdodenhof.circleimageview.CircleImageView
                 xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -19,7 +21,7 @@
                 android:layout_height="20dp"
                 android:layout_gravity="center"
                 android:layout_marginRight="5dp"
-                android:src="@drawable/default_round_head"
+                android:src="@drawable/header2"
                 android:translationZ="10dp" />
             <TextView
                 android:id="@+id/tv_status_publisher"
@@ -48,7 +50,9 @@
             android:id="@+id/skip_to_detail"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:foreground="?android:attr/selectableItemBackground"
+            >
 
             <TextView
                 android:id="@+id/tv_status_title"
@@ -67,6 +71,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="西电这所学校啊，它好就好在它十分优秀。比如它的食堂和宿舍，毫不夸张地说，世界上还没有哪个学校能如此之优秀！"
+                android:maxLines="4"
+                android:ellipsize="end"
                 android:textColor="@color/midGray"
                 android:textSize="16sp" />
             <LinearLayout

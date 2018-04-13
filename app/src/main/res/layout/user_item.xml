@@ -15,7 +15,6 @@
         android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:divider="@drawable/divider_bg"
         android:dividerPadding="10dp"
         android:showDividers="middle">
 
@@ -35,7 +34,7 @@
                     android:layout_width="match_parent"
                     android:adjustViewBounds="true"
                     android:layout_height="match_parent"
-                    android:src="@drawable/default_round_head"
+                    android:src="@drawable/header3"
                     android:scaleType="centerCrop"
                     android:id="@+id/type_top_cover"
                     />
@@ -66,7 +65,16 @@
                     android:gravity="center"
                     android:id="@+id/school" />
                 <TextView
-                    android:text="1602019"
+                    android:text="通信工程学院"
+                    android:textSize="16sp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:id="@+id/college" />
+
+                <TextView
+                    android:text="本科15级"
                     android:textSize="16sp"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -75,7 +83,108 @@
                     android:id="@+id/grade" />
 
             </LinearLayout>
+
         </LinearLayout>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:background="#f5d1cad1"></View>
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginBottom="10dp"
+            >
+            <TextView
+                android:text="教授学科"
+                android:textSize="16sp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center" />
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="#f5d1cad1"
+                ></View>
+            <TextView
+                android:text="数学"
+                android:textSize="16sp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:id="@+id/subject" />
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/gray_theme"></View>
+            <TextView
+                android:text="授课经验"
+                android:textSize="16sp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center" />
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="#f5d1cad1"
+                ></View>
+            <TextView
+                android:text="3年"
+                android:textSize="16sp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:id="@+id/experience" />
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/gray_theme"></View>
+            <TextView
+                android:text="风格"
+                android:textSize="16sp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center" />
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="#f5d1cad1"
+                ></View>
+            <TextView
+                android:text="很有魅力，寓教于乐"
+                android:textSize="16sp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:id="@+id/style" />
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/gray_theme"></View>
+            <TextView
+                android:text="座右铭"
+                android:textSize="16sp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center" />
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="#f5d1cad1"
+                ></View>
+            <TextView
+                android:text="去追逐越月亮吧，因为即使你坠落，也会落在群星之间"
+                android:textSize="16sp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:id="@+id/motto" />
+
+        </LinearLayout>
+
     </LinearLayout>
 
 </android.support.v7.widget.CardView>

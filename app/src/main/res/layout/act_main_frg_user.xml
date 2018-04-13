@@ -30,7 +30,7 @@
             <ImageView
                 android:fitsSystemWindows="true"
                 android:id="@+id/collapsing_bar_background_image"
-                android:src="@drawable/demo"
+                android:src="@drawable/bg3"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:scaleType="centerCrop"
@@ -53,7 +53,7 @@
         android:id="@+id/profile_image"
         android:layout_width="96dp"
         android:layout_height="96dp"
-        android:src="@drawable/default_round_head"
+        android:src="@drawable/header1"
         android:translationZ="10dp"
         app:layout_anchor="@id/scroll_view"
         app:layout_anchorGravity="top|center_horizontal"/>
@@ -87,7 +87,7 @@
                     android:layout_height="wrap_content"
                     android:layout_centerHorizontal="true"
                     android:layout_marginTop="50dp"
-                    android:text="游世隆"
+                    android:text="徐鹏涛"
                     android:textColor="@color/black"
                     android:textSize="20sp" />
 
@@ -216,7 +216,9 @@
                 android:paddingBottom="10dp"
                 android:paddingEnd="20dp"
                 android:paddingStart="20dp"
-                android:paddingTop="10dp">
+                android:paddingTop="10dp"
+                android:foreground="?android:attr/selectableItemBackground"
+                >
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -243,7 +245,9 @@
                 android:paddingBottom="10dp"
                 android:paddingEnd="20dp"
                 android:paddingStart="20dp"
-                android:paddingTop="10dp">
+                android:paddingTop="10dp"
+                android:foreground="?android:attr/selectableItemBackground"
+                >
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -270,7 +274,9 @@
                 android:paddingBottom="10dp"
                 android:paddingEnd="20dp"
                 android:paddingStart="20dp"
-                android:paddingTop="10dp">
+                android:paddingTop="10dp"
+                android:foreground="?android:attr/selectableItemBackground"
+                >
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -287,6 +293,30 @@
                     android:padding="7dp"
                     android:src="@drawable/ic_personal_expand_right" />
             </RelativeLayout>
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/gray_theme"></View>
+            <com.qmuiteam.qmui.widget.roundwidget.QMUIRoundButton
+                android:id="@+id/quit"
+                android:foreground="?android:attr/selectableItemBackground"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:paddingBottom="10dp"
+                android:paddingLeft="16dp"
+                android:paddingRight="16dp"
+                android:paddingTop="10dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginTop="100dp"
+                android:text="退出登录"
+                android:textSize="16sp"
+                android:layout_marginBottom="20dp"
+                app:qmui_isRadiusAdjustBounds="true"
+                android:textColor="@color/midGray"
+                app:qmui_borderColor="@color/midGray"
+                />
 
         </LinearLayout>
 

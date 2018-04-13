@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
@@ -21,10 +22,11 @@
             android:layout_width="match_parent"
             android:layout_height="56dp">
             <TextView
-                android:text='搜索'
+                android:text='编辑动态'
                 android:textSize="20dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
+
         </android.support.v7.widget.Toolbar>
     </android.support.design.widget.AppBarLayout>
 
@@ -35,30 +37,23 @@
         android:background="#f4f4f4"
         android:orientation="vertical"
         android:elevation="3dp"
-        >
+        ></LinearLayout>
 
-        <com.youtome.view.ClearEditText
-                android:id="@+id/clearEditText"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="10dp"
-                android:background="@drawable/search_border"
-                android:drawableLeft="@mipmap/ic_search_grey600_24dp"
-                android:hint="请输入关键字"
-                android:padding="5dp"
-                android:singleLine="true"
-                android:textSize="14sp"
-                />
-    </LinearLayout>
-
-    <com.qmuiteam.qmui.widget.grouplist.QMUIGroupListView
-        android:id="@+id/about_list"
+    <com.rengwuxian.materialedittext.MaterialEditText
+        android:id="@+id/met_score"
+        android:focusable="true"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:hint="分享新鲜事..."
+        android:textSize="16dp"
+        android:layout_margin="20dp"
+        app:met_hideUnderline="true"
+        app:met_maxCharacters="150"
+        app:met_errorColor="@color/qmui_config_color_red"
+        app:met_primaryColor="#000000"
         />
-    <android.support.v7.widget.RecyclerView
-            android:id="@+id/act_search_rv"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent" />
 
 </LinearLayout>
+
+
+

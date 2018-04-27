@@ -15,6 +15,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 import com.google.gson.Gson;
 import com.youtome.app.AppApplication;
+import com.youtome.tool.PrefTools;
 import com.youtome.view.superadapter.Signin;
 
 import okhttp3.FormBody;

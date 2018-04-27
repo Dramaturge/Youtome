@@ -1,0 +1,469 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/read_dl_slide"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:fitsSystemWindows="true"
+    >
+    <android.support.design.widget.AppBarLayout
+        android:id="@+id/app_bar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#f4f4f4"
+        >
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:elevation="20dp"
+            app:navigationIcon="@mipmap/gray_back_mipmap"
+            android:layout_width="match_parent"
+            android:layout_height="56dp">
+            <TextView
+                android:id="@+id/detail_title"
+                android:text='个人资料'
+                android:textSize="20dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+        </android.support.v7.widget.Toolbar>
+    </android.support.design.widget.AppBarLayout>
+    <ScrollView
+        xmlns:tools="http://schemas.android.com/tools"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/scroll_view"
+        android:scrollbars="vertical"
+        android:background="@color/top_category_bar_background_day"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <LinearLayout
+            android:id="@+id/edit_personal_information_all"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/gray_theme"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:background="@color/white"
+                android:showDividers="middle"
+                android:orientation="vertical"
+                android:id="@+id/portrait_and_signature"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <RelativeLayout
+                    android:padding="@dimen/general_user_small_padding"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:layout_marginStart="20dp"
+                        android:id="@+id/nick_name"
+                        android:layout_centerVertical="true"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="@dimen/other_small_text_size"
+                        android:text="昵称"
+                        android:textColor="@color/text_color_pure_black_user_information" />
+                    <com.rengwuxian.materialedittext.MaterialEditText
+                        android:id="@+id/met_nick_name"
+                        app:met_hideUnderline="true"
+                        android:focusable="true"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        app:met_primaryColor="#000000"
+                        android:layout_toEndOf="@id/nick_name"
+                        android:layout_marginStart="@dimen/user_information_margin_start"
+                        android:foreground="?android:attr/selectableItemBackground"
+                        />
+                </RelativeLayout>
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/gray_theme"></View>
+
+
+                <RelativeLayout
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:padding="@dimen/general_user_small_padding"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:id="@+id/signature"
+                        android:layout_marginStart="20dp"
+                        android:layout_centerVertical="true"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="@dimen/other_small_text_size"
+                        android:text="签名"
+                        android:textColor="@color/text_color_pure_black_user_information" />
+
+                    <com.rengwuxian.materialedittext.MaterialEditText
+                        android:id="@+id/met_signature"
+                        app:met_hideUnderline="true"
+                        android:focusable="true"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        app:met_primaryColor="#000000"
+                        android:layout_toEndOf="@id/signature"
+                        android:layout_marginStart="@dimen/user_information_margin_start"
+                        android:foreground="?android:attr/selectableItemBackground"
+                        />
+                </RelativeLayout>
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/gray_theme"></View>
+
+
+                <RelativeLayout
+                    android:padding="@dimen/general_user_small_padding"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:layout_marginStart="20dp"
+                        android:id="@+id/school"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="学校"
+                        android:layout_centerVertical="true"
+                        android:textSize="@dimen/other_small_text_size"
+                        android:textColor="@color/text_color_pure_black_user_information" />
+
+                    <com.rengwuxian.materialedittext.MaterialEditText
+                        android:id="@+id/met_school"
+                        app:met_hideUnderline="true"
+                        android:focusable="true"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        app:met_primaryColor="#000000"
+                        android:layout_toEndOf="@id/school"
+                        android:layout_marginStart="@dimen/user_information_margin_start"
+                        android:foreground="?android:attr/selectableItemBackground"
+                        />
+
+
+                </RelativeLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/nick_name_genders_and_birth_date"
+                android:layout_marginTop="@dimen/user_information_margin_start"
+                android:background="@color/white"
+                android:layout_marginBottom="@dimen/user_information_margin_start"
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:layout_margin="10dp"
+                    android:gravity="center"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="@dimen/other_small_text_size"
+                    android:text="以下信息不会在首页显示，认真填写将有助于软件进行个性推荐"
+                    android:textColor="@color/text_color_pure_black_user_information" />
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/gray_theme"></View>
+
+                <RelativeLayout
+                    android:padding="@dimen/general_user_small_padding"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:id="@+id/gender"
+                        android:layout_marginStart="20dp"
+                        android:layout_centerVertical="true"
+                        android:text="性别"
+                        android:textSize="@dimen/other_small_text_size"
+                        android:textColor="@color/text_color_pure_black_user_information"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+
+                    <com.rengwuxian.materialedittext.MaterialEditText
+                        android:id="@+id/met_gender"
+                        app:met_hideUnderline="true"
+                        android:focusable="true"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        app:met_primaryColor="#000000"
+                        android:layout_toEndOf="@id/gender"
+                        android:layout_marginStart="@dimen/user_information_margin_start"
+                        android:foreground="?android:attr/selectableItemBackground"
+                        />
+
+
+                </RelativeLayout>
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/gray_theme"></View>
+
+
+
+                <RelativeLayout
+                    android:padding="@dimen/general_user_small_padding"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:layout_marginStart="20dp"
+                        android:id="@+id/birth_date"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="生日"
+                        android:layout_centerVertical="true"
+                        android:textSize="@dimen/other_small_text_size"
+                        android:textColor="@color/text_color_pure_black_user_information" />
+
+                    <com.rengwuxian.materialedittext.MaterialEditText
+                        android:id="@+id/met_birth_date"
+                        app:met_hideUnderline="true"
+                        android:focusable="true"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        app:met_primaryColor="#000000"
+                        android:layout_toEndOf="@id/birth_date"
+                        android:layout_marginStart="@dimen/user_information_margin_start"
+                        android:foreground="?android:attr/selectableItemBackground"
+                        />
+
+
+                </RelativeLayout>
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/gray_theme"></View>
+
+                <RelativeLayout
+                    android:padding="@dimen/general_user_small_padding"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:id="@+id/region"
+                        android:layout_marginStart="20dp"
+                        android:layout_centerVertical="true"
+                        android:text="地区"
+                        android:textSize="@dimen/other_small_text_size"
+                        android:textColor="@color/text_color_pure_black_user_information"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+
+                    <com.rengwuxian.materialedittext.MaterialEditText
+                        android:id="@+id/met_region"
+                        app:met_hideUnderline="true"
+                        android:focusable="true"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        app:met_primaryColor="#000000"
+                        android:layout_toEndOf="@id/region"
+                        android:layout_marginStart="@dimen/user_information_margin_start"
+                        android:foreground="?android:attr/selectableItemBackground"
+                        />
+
+
+                </RelativeLayout>
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/gray_theme"></View>
+                <RelativeLayout
+                    android:padding="@dimen/general_user_small_padding"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:layout_marginStart="20dp"
+                        android:id="@+id/entrance_date"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="入学年份"
+                        android:layout_centerVertical="true"
+                        android:textSize="@dimen/other_small_text_size"
+                        android:textColor="@color/text_color_pure_black_user_information" />
+
+                    <com.rengwuxian.materialedittext.MaterialEditText
+                        android:id="@+id/met_entrance_date"
+                        app:met_hideUnderline="true"
+                        android:focusable="true"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        app:met_primaryColor="#000000"
+                        android:layout_toEndOf="@id/entrance_date"
+                        android:layout_marginStart="@dimen/user_information_margin_start"
+                        android:foreground="?android:attr/selectableItemBackground"
+                        />
+
+
+                </RelativeLayout>
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/gray_theme"></View>
+
+                <RelativeLayout
+                    android:padding="@dimen/general_user_small_padding"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:layout_marginStart="20dp"
+                        android:id="@+id/intention_major"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="意向专业"
+                        android:layout_centerVertical="true"
+                        android:textSize="@dimen/other_small_text_size"
+                        android:textColor="@color/text_color_pure_black_user_information" />
+
+                    <com.rengwuxian.materialedittext.MaterialEditText
+                        android:id="@+id/met_intention_major"
+                        app:met_hideUnderline="true"
+                        android:focusable="true"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        app:met_primaryColor="#000000"
+                        android:layout_toEndOf="@id/intention_major"
+                        android:layout_marginStart="@dimen/user_information_margin_start"
+                        android:foreground="?android:attr/selectableItemBackground"
+                        />
+
+
+                </RelativeLayout>
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/gray_theme"></View>
+
+                <RelativeLayout
+                    android:padding="@dimen/general_user_small_padding"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:layout_marginStart="20dp"
+                        android:id="@+id/intention_region"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="意向地区"
+                        android:layout_centerVertical="true"
+                        android:textSize="@dimen/other_small_text_size"
+                        android:textColor="@color/text_color_pure_black_user_information" />
+
+                    <com.rengwuxian.materialedittext.MaterialEditText
+                        android:id="@+id/met_intention_region"
+                        app:met_hideUnderline="true"
+                        android:focusable="true"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        app:met_primaryColor="#000000"
+                        android:layout_toEndOf="@id/intention_region"
+                        android:layout_marginStart="@dimen/user_information_margin_start"
+                        android:foreground="?android:attr/selectableItemBackground"
+                        />
+
+
+                </RelativeLayout>
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/gray_theme"></View>
+            </LinearLayout>
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:showDividers="middle"
+                android:background="@color/white"
+                android:layout_marginBottom="@dimen/user_information_margin_start"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <RelativeLayout
+                    android:padding="@dimen/general_user_small_padding"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:id="@+id/phone"
+                        android:layout_marginStart="20dp"
+                        android:layout_centerVertical="true"
+                        android:text="手机号码"
+                        android:textSize="@dimen/other_small_text_size"
+                        android:textColor="@color/text_color_pure_black_user_information"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+
+                    <com.rengwuxian.materialedittext.MaterialEditText
+                        android:id="@+id/met_phone"
+                        app:met_hideUnderline="true"
+                        android:focusable="true"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        app:met_primaryColor="#000000"
+                        android:layout_toEndOf="@id/phone"
+                        android:layout_marginStart="@dimen/user_information_margin_start"
+                        android:foreground="?android:attr/selectableItemBackground"
+                        />
+
+
+                </RelativeLayout>
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/gray_theme"></View>
+                <RelativeLayout
+                    android:padding="@dimen/general_user_small_padding"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:id="@+id/email"
+                        android:layout_marginStart="20dp"
+                        android:layout_centerVertical="true"
+                        android:text="邮箱地址"
+                        android:textSize="@dimen/other_small_text_size"
+                        android:textColor="@color/text_color_pure_black_user_information"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+
+                    <com.rengwuxian.materialedittext.MaterialEditText
+                        android:id="@+id/met_email"
+                        app:met_hideUnderline="true"
+                        android:focusable="true"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        app:met_primaryColor="#000000"
+                        android:layout_toEndOf="@id/email"
+                        android:layout_marginStart="@dimen/user_information_margin_start"
+                        android:foreground="?android:attr/selectableItemBackground"
+                        />
+
+
+                </RelativeLayout>
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/gray_theme"></View>
+
+            </LinearLayout>
+            <Button
+                android:layout_gravity="center"
+                android:id="@+id/privacy_xy"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@android:color/transparent"
+                android:text="《客户隐私保障承诺书》"
+                android:textSize="18sp"
+                android:textColor="@color/light_blue"
+                android:textStyle="bold" />
+
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

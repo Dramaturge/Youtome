@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.youtome" >
+    package="com.youtome">
 
     <!-- Include following permission if you load images from Internet -->
     <uses-permission android:name="android.permission.INTERNET" />
@@ -18,7 +18,7 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launch"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme" >
+        android:theme="@style/AppTheme">
         <activity
             android:name=".LoginActivity"
             android:theme="@style/AppTheme1" />
@@ -36,13 +36,9 @@
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme1" />
         <activity
-            android:name=".UserxyActivity"
+            android:name=".WelcomeActivity"
             android:screenOrientation="portrait"
-            android:theme="@style/AppTheme1" />
-        <activity
-            android:name=".Welcome"
-            android:screenOrientation="portrait"
-            android:theme="@style/AppTheme1" >
+            android:theme="@style/AppTheme1">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -51,9 +47,14 @@
         </activity>
         <activity android:name=".OtherHomepageActivity" />
         <activity android:name=".DetailActivity" />
-        <activity android:name=".TestActivity" />
-        <activity android:name=".SendStatusActivity" >
-        </activity>
+        <activity android:name=".RecommendResultActivity" />
+        <activity android:name=".AboutYoutomeActivity" />
+        <activity android:name=".SendStatusActivity" />
+        <activity android:name=".EditInformationActivity" />
+        <activity android:name=".EditPortraitActivity" />
+        <activity android:name=".CommentsActivity" />
+        <activity android:name=".AccountActivity" />
+        <activity android:name=".AccountPasswordActivity"></activity>
     </application>
 
 </manifest>

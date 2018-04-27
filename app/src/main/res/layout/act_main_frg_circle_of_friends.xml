@@ -8,7 +8,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="@color/white"
+    android:background="@color/gray_theme"
     android:fitsSystemWindows="true"
     android:focusable="true"
     android:focusableInTouchMode="true">
@@ -17,9 +17,8 @@
         android:layout_width="match_parent"
         app:contentInsetStart="0dp"
         android:layout_height="?attr/actionBarSize"
-        android:layout_marginTop="25dp"
+        android:layout_marginTop="20dp"
         android:background="@color/gray_theme"
-        android:elevation="5dp"
         >
         <RelativeLayout
             android:layout_width="match_parent"
@@ -51,7 +50,8 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:background="@color/white">
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
@@ -91,6 +91,7 @@
                         />
                 </LinearLayout>
             </RelativeLayout>
+
             <android.support.v7.widget.RecyclerView
                 android:id="@+id/friends_recycler"
                 android:layout_width="match_parent"

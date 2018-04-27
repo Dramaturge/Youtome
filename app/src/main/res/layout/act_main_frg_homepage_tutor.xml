@@ -38,173 +38,197 @@
                     android:text="课程推荐"
                     android:textColor="@color/black"
                     android:textSize="20sp" />
-
                 <LinearLayout
+                    android:layout_marginLeft="30dp"
+                    android:layout_marginRight="30dp"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:gravity="center">
+                    android:layout_height="300dp"
+                    android:orientation="vertical"
+                    android:weightSum="3">
                     <LinearLayout
-                        android:id="@+id/yuwen"
-                        android:orientation="vertical"
-                        android:gravity="center"
-                        android:layout_width="wrap_content"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_margin="30dp">
-                        <ImageView
-                            android:src="@mipmap/yuwen"
+                        android:gravity="center"
+                        android:layout_weight="1"
+                        android:weightSum="3">
+                        <LinearLayout
+                            android:foreground="?android:attr/selectableItemBackground"
+                            android:layout_weight="1"
+                            android:id="@+id/yuwen"
+                            android:orientation="vertical"
+                            android:gravity="center"
                             android:layout_width="wrap_content"
-                            android:layout_height="wrap_content" />
-                        <TextView
-                            android:text="语文"
+                            android:layout_height="match_parent">
+                            <ImageView
+                                android:src="@mipmap/yuwen"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content" />
+                            <TextView
+                                android:text="语文"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content" />
+                        </LinearLayout>
+                        <LinearLayout
+                            android:foreground="?android:attr/selectableItemBackground"
+                            android:layout_weight="1"
+                            android:id="@+id/shuxue"
+                            android:orientation="vertical"
+                            android:gravity="center"
                             android:layout_width="wrap_content"
-                            android:layout_height="wrap_content" />
+                            android:layout_height="match_parent">
+                            <ImageView
+                                android:src="@mipmap/shuxue"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content" />
+                            <TextView
+                                android:text="数学"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content" />
+                        </LinearLayout>
+                        <LinearLayout
+                            android:foreground="?android:attr/selectableItemBackground"
+                            android:layout_weight="1"
+                            android:id="@+id/yingyu"
+                            android:orientation="vertical"
+                            android:gravity="center"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent">
+                            <ImageView
+                                android:src="@mipmap/yingyu"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content" />
+                            <TextView
+                                android:text="英语"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content" />
+                        </LinearLayout>
+
                     </LinearLayout>
+
                     <LinearLayout
-                        android:id="@+id/shuxue"
-                        android:orientation="vertical"
-                        android:gravity="center"
-                        android:layout_width="wrap_content"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_margin="30dp">
-                        <ImageView
-                            android:src="@mipmap/shuxue"
+                        android:gravity="center"
+                        android:layout_weight="1"
+                        android:weightSum="3">
+                        <LinearLayout
+                            android:foreground="?android:attr/selectableItemBackground"
+                            android:layout_weight="1"
+                            android:id="@+id/wuli"
+                            android:orientation="vertical"
+                            android:gravity="center"
                             android:layout_width="wrap_content"
-                            android:layout_height="wrap_content" />
-                        <TextView
-                            android:text="数学"
+                            android:layout_height="match_parent">
+                            <ImageView
+                                android:src="@mipmap/wuli"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content" />
+                            <TextView
+                                android:text="物理"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content" />
+                        </LinearLayout>
+                        <LinearLayout
+                            android:foreground="?android:attr/selectableItemBackground"
+                            android:layout_weight="1"
+                            android:id="@+id/huaxue"
+                            android:orientation="vertical"
+                            android:gravity="center"
                             android:layout_width="wrap_content"
-                            android:layout_height="wrap_content" />
+                            android:layout_height="match_parent">
+                            <ImageView
+                                android:src="@mipmap/huaxue"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content" />
+                            <TextView
+                                android:text="化学"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content" />
+                        </LinearLayout>
+                        <LinearLayout
+                            android:foreground="?android:attr/selectableItemBackground"
+                            android:layout_weight="1"
+                            android:id="@+id/shengwu"
+                            android:orientation="vertical"
+                            android:gravity="center"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent">
+                            <ImageView
+                                android:src="@mipmap/shengwu"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content" />
+                            <TextView
+                                android:text="生物"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content" />
+                        </LinearLayout>
+
                     </LinearLayout>
+
                     <LinearLayout
-                        android:id="@+id/yingyu"
-                        android:orientation="vertical"
-                        android:gravity="center"
-                        android:layout_width="wrap_content"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_margin="30dp">
-                        <ImageView
-                            android:src="@mipmap/yingyu"
+                        android:gravity="center"
+                        android:layout_weight="1"
+                        android:weightSum="3">
+                        <LinearLayout
+                            android:foreground="?android:attr/selectableItemBackground"
+                            android:layout_weight="1"
+                            android:id="@+id/lishi"
+                            android:orientation="vertical"
+                            android:gravity="center"
                             android:layout_width="wrap_content"
-                            android:layout_height="wrap_content" />
-                        <TextView
-                            android:text="英语"
+                            android:layout_height="match_parent">
+                            <ImageView
+                                android:src="@mipmap/lishi"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content" />
+                            <TextView
+                                android:text="历史"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content" />
+                        </LinearLayout>
+                        <LinearLayout
+                            android:foreground="?android:attr/selectableItemBackground"
+                            android:layout_weight="1"
+                            android:id="@+id/zhengzhi"
+                            android:orientation="vertical"
+                            android:gravity="center"
                             android:layout_width="wrap_content"
-                            android:layout_height="wrap_content" />
+                            android:layout_height="match_parent">
+                            <ImageView
+                                android:src="@mipmap/zhengzhi"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content" />
+                            <TextView
+                                android:text="政治"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content" />
+                        </LinearLayout>
+                        <LinearLayout
+                            android:foreground="?android:attr/selectableItemBackground"
+                            android:layout_weight="1"
+                            android:id="@+id/dili"
+                            android:orientation="vertical"
+                            android:gravity="center"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent">
+
+                            <ImageView
+                                android:src="@mipmap/dili"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content" />
+                            <TextView
+                                android:text="地理"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content" />
+                        </LinearLayout>
+
                     </LinearLayout>
 
                 </LinearLayout>
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:gravity="center">
-                    <LinearLayout
-                        android:id="@+id/wuli"
-                        android:orientation="vertical"
-                        android:gravity="center"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="30dp"
-                        android:layout_marginRight="30dp">
-                        <ImageView
-                            android:src="@mipmap/wuli"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content" />
-                        <TextView
-                            android:text="物理"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content" />
-                    </LinearLayout>
-                    <LinearLayout
-                        android:id="@+id/huaxue"
-                        android:orientation="vertical"
-                        android:gravity="center"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="30dp"
-                        android:layout_marginRight="30dp">
-                        <ImageView
-                            android:src="@mipmap/huaxue"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content" />
-                        <TextView
-                            android:text="化学"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content" />
-                    </LinearLayout>
-                    <LinearLayout
-                        android:id="@+id/shengwu"
-                        android:orientation="vertical"
-                        android:gravity="center"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="30dp"
-                        android:layout_marginRight="30dp">
-                        <ImageView
-                            android:src="@mipmap/shengwu"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content" />
-                        <TextView
-                            android:text="生物"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content" />
-                    </LinearLayout>
 
-                </LinearLayout>
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:gravity="center">
-                    <LinearLayout
-                        android:id="@+id/lishi"
-                        android:orientation="vertical"
-                        android:gravity="center"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_margin="30dp">
-                        <ImageView
-                            android:src="@mipmap/lishi"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content" />
-                        <TextView
-                            android:text="历史"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content" />
-                    </LinearLayout>
-                    <LinearLayout
-                        android:id="@+id/zhengzhi"
-                        android:orientation="vertical"
-                        android:gravity="center"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_margin="30dp">
-                        <ImageView
-                            android:src="@mipmap/zhengzhi"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content" />
-                        <TextView
-                            android:text="政治"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content" />
-                    </LinearLayout>
-                    <LinearLayout
-                        android:id="@+id/dili"
-                        android:orientation="vertical"
-                        android:gravity="center"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_margin="30dp">
 
-                        <ImageView
-                            android:src="@mipmap/dili"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content" />
-                        <TextView
-                            android:text="地理"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content" />
-                    </LinearLayout>
-
-                </LinearLayout>
 
 
             </LinearLayout>

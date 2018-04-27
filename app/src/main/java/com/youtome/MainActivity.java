@@ -4,11 +4,8 @@ import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.content.ContextCompat;
-import android.support.v4.view.GravityCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.view.KeyEvent;
-import android.view.Menu;
-import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -16,14 +13,26 @@ import com.jaeger.library.StatusBarUtil;
 import com.luseen.luseenbottomnavigation.BottomNavigation.BottomNavigationItem;
 import com.luseen.luseenbottomnavigation.BottomNavigation.OnBottomNavigationItemClickListener;
 import com.youtome.app.AppApplication;
+import com.youtome.tool.PrefTools;
 
 public class MainActivity extends AppCompatActivity {
-
+    /**
+     * 主界面
+     * 层次结构：
+     * 包含三个Fragment：
+     * 主页（MainActivityHomepageFragment）
+     *      主页下包含三个子Fragment：
+     *      咨询（MainActivityHomepageConsultationFragment）
+     *      报考（MainActivityHomepageApplyFragment）
+     *      家教（MainActivityHomepageTutorFragment）
+     * 朋友圈（MainActivityHomepageFragment）
+     * 我（MainActivityUserFragment）
+     * */
     private TextView main_title;
     private Fragment[] fragments;
-    private CirclesOfFriendsFragment circlesOfFriendsFragment;
-    private HomepageFragment homepageFragment;
-    private UserFragment userFragment;
+    private MainActivityCirclesOfFriendsFragment mainActivityCirclesOfFriendsFragment;
+    private MainActivityHomepageFragment mainActivityHomepageFragment;
+    private MainActivityUserFragment mainActivityUserFragment;
     private int lastShowFragment = 0;
     private com.luseen.luseenbottomnavigation.BottomNavigation.BottomNavigationView bottomNavigationView;
 
@@ -127,15 +136,15 @@ public class MainActivity extends AppCompatActivity {
 
     private void initFragments() {
 
-        homepageFragment =new HomepageFragment();
-        circlesOfFriendsFragment = new CirclesOfFriendsFragment();
-        userFragment=new UserFragment();
-        fragments = new Fragment[]{homepageFragment, circlesOfFriendsFragment, userFragment};
+        mainActivityHomepageFragment =new MainActivityHomepageFragment();
+        mainActivityCirclesOfFriendsFragment = new MainActivityCirclesOfFriendsFragment();
+        mainActivityUserFragment =new MainActivityUserFragment();
+        fragments = new Fragment[]{mainActivityHomepageFragment, mainActivityCirclesOfFriendsFragment, mainActivityUserFragment};
         lastShowFragment = 0;
         getSupportFragmentManager()
                 .beginTransaction()
-                .add(R.id.container, homepageFragment)
-                .show(homepageFragment)
+                .add(R.id.container, mainActivityHomepageFragment)
+                .show(mainActivityHomepageFragment)
                 .commit();
     }
 

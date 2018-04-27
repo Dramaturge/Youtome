@@ -4,16 +4,20 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.youtome.MainActivity">
+    tools:context="com.youtome.MainActivity"
+    android:background="@color/white">
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:background="@color/white"
+            >
             <FrameLayout
                 android:id="@+id/container"
                 android:layout_width="match_parent"
                 android:layout_weight="1"
                 android:layout_height="0dp"
+                android:background="@color/white"
                 >
             </FrameLayout>
             <!--<android.support.design.widget.BottomNavigationView-->

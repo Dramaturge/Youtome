@@ -10,7 +10,9 @@ import android.widget.TextView;
 
 import com.jaeger.library.StatusBarUtil;
 import com.youtome.view.SelectableTextView;
-
+/**
+ *专门用来显示文字的活动
+ * */
 public class DetailActivity extends AppCompatActivity {
 
     private Toolbar toolbar;

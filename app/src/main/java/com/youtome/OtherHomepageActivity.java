@@ -20,19 +20,31 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.gson.Gson;
 import com.jaeger.library.StatusBarUtil;
 import com.qmuiteam.qmui.widget.dialog.QMUIDialog;
 import com.qmuiteam.qmui.widget.dialog.QMUIDialogAction;
+import com.youtome.app.AppApplication;
 import com.youtome.bean.Status;
+import com.youtome.tool.PrefTools;
 import com.youtome.view.RecyclerViewCommonTool.CommonAdapter;
 import com.youtome.view.RecyclerViewCommonTool.ViewHolder;
+import com.youtome.view.superadapter.Adduser;
 import com.youtome.view.superadapter.LayoutWrapper;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import de.hdodenhof.circleimageview.CircleImageView;
-
+import okhttp3.FormBody;
+import okhttp3.OkHttpClient;
+import okhttp3.Request;
+import okhttp3.RequestBody;
+import okhttp3.Response;
+/**
+ *他人主页
+ * 通过点击他人头像进入
+ * */
 public class OtherHomepageActivity extends AppCompatActivity {
 
     private RecyclerView mRecyclerView;
@@ -59,6 +71,8 @@ public class OtherHomepageActivity extends AppCompatActivity {
     private RecyclerView status_recycler;
     private LinearLayout user_information_all;
     private NestedScrollView scroll_view;
+    private String Username;
+    private String Token;
 
     private enum CollapsingToolbarLayoutState {
         EXPANDED,
@@ -71,7 +85,14 @@ public class OtherHomepageActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.act_other_homepage);
         StatusBarUtil.setTranslucentForCoordinatorLayout(OtherHomepageActivity.this,50);
-
+        Username = PrefTools.getString(
+                AppApplication.getContext(), "User","");
+        Token = PrefTools.getString(
+                AppApplication.getContext(), "Token","");
+        Intent intent=getIntent();
+        String publisher=intent.getStringExtra("publisher");
+        user_name=(TextView) findViewById(R.id.user_name);
+        user_name.setText(publisher);
         initView();
 
     }
@@ -167,7 +188,7 @@ public class OtherHomepageActivity extends AppCompatActivity {
         mRecyclerView.addItemDecoration(mDecoration);
 
 
-        adapter=new CommonAdapter<Status>(OtherHomepageActivity.this, R.layout.status_item, statusArrayList){
+        adapter=new CommonAdapter<Status>(OtherHomepageActivity.this, R.layout.item_status, statusArrayList){
             @Override
             public void onBindViewHolder(ViewHolder viewHolder, int position) {
                 super.onBindViewHolder(viewHolder, position);
@@ -183,7 +204,6 @@ public class OtherHomepageActivity extends AppCompatActivity {
                 TextView tv_status_content =holder.getView(R.id.tv_status_content);//内容
                 TextView tv_like_number =holder.getView(R.id.tv_like_number);//赞同数
                 TextView tv_comments_number =holder.getView(R.id.tv_comments_number);//评论数
-                TextView tv_transpond_number =holder.getView(R.id.tv_transpond_number);//转发数
 
                 profile_image.setImageDrawable(getResources().getDrawable(data.getHeader()));
                 tv_status_publisher.setText(data.getPublisher());
@@ -191,7 +211,6 @@ public class OtherHomepageActivity extends AppCompatActivity {
                 tv_like_number.setText(data.getLike_number());
                 tv_status_content.setText(data.getContent());
                 tv_comments_number.setText(data.getComments_number());
-                tv_transpond_number.setText(data.getTranspond_number());
 
 
 
@@ -207,8 +226,11 @@ public class OtherHomepageActivity extends AppCompatActivity {
                 skip_to_detail.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
-                        Intent intent=new Intent(OtherHomepageActivity.this,DetailActivity.class);//跳转到这条状态的详细内容
+                        Intent intent=new Intent(OtherHomepageActivity.this,CommentsActivity.class);//跳转到这条状态的详细内容
                         intent.putExtra("content",data.getContent());
+                        intent.putExtra("name",data.getPublisher());
+                        intent.putExtra("time",data.getPublish_time());
+                        intent.putExtra("isStatus",true);
                         startActivity(intent);
                     }
                 });
@@ -257,6 +279,48 @@ public class OtherHomepageActivity extends AppCompatActivity {
                     @Override
                     public void onClick(QMUIDialog dialog, int index) {
                         dialog.dismiss();
+                        user_name=(TextView) findViewById(R.id.user_name);
+                        final String Add=user_name.getText().toString();
+                        new Thread(new Runnable() {
+                            @Override
+                            public void run() {
+                                try{
+                                    RequestBody requestBody =new FormBody.Builder().add("username",Username).add("token",Token).add("friend",Add).build();
+                                    OkHttpClient client=new OkHttpClient();
+                                    Request request=new Request.Builder().url("http://118.24.120.57:8080/education/addFriend.php").post(requestBody).build();
+                                    final Response response= client.newCall(request).execute();
+                                    final String  reponseData=response.body().string();
+                                    Gson gson=new Gson();
+                                    Adduser adduser=gson.fromJson(reponseData,Adduser.class);
+                                    final String status=adduser.getStatus();
+//                                    if(status.equals("fail")){
+//
+//                                        final String reason=adduser.getReason();
+//                                        runOnUiThread(new Runnable() {
+//                                            @Override
+//                                            public void run() {
+//
+//                                                Toast.makeText(OtherHomepageActivity.this, "关注失败 "+reason, Toast.LENGTH_SHORT).show();
+//                                            }
+//                                        });
+//                                    }
+//                                    else{
+//
+//                                        runOnUiThread(new Runnable() {
+//                                            @Override
+//                                            public void run() {
+//                                                Toast.makeText(OtherHomepageActivity.this, "关注成功", Toast.LENGTH_SHORT).show();
+//                                            }
+//
+//                                        });
+//
+//                                    }
+
+                                } catch (Exception e) {
+                                    e.printStackTrace();
+                                }
+                            }
+                        }).start();
                         Toast.makeText(OtherHomepageActivity.this, "关注成功", Toast.LENGTH_SHORT).show();
                     }
                 })

@@ -1,0 +1,304 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/read_dl_slide"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:fitsSystemWindows="true"
+    >
+    <android.support.design.widget.AppBarLayout
+        android:id="@+id/app_bar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#f4f4f4"
+        >
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbar"
+            app:title="搜索"
+            android:elevation="20dp"
+            app:navigationIcon="@mipmap/gray_back_mipmap"
+            android:layout_width="match_parent"
+            android:layout_height="56dp">
+            <TextView
+                android:id="@+id/detail_title"
+                android:text='详情'
+                android:textSize="20dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+        </android.support.v7.widget.Toolbar>
+    </android.support.design.widget.AppBarLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_weight="1"
+        android:layout_height="0dp">
+        <ScrollView
+            android:id="@+id/scroll_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <LinearLayout
+                android:divider="@drawable/divider_bg"
+                android:showDividers="middle"
+                android:orientation="vertical"
+                android:id="@+id/periodical_detail_all"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:showDividers="middle">
+
+                    <LinearLayout
+                        android:orientation="horizontal"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginTop="10dp"
+                        >
+                        <LinearLayout
+                            android:orientation="vertical"
+                            android:layout_gravity="center"
+                            android:gravity="center"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginBottom="10dp"
+                            android:layout_weight="3">
+
+
+                            <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:orientation="vertical">
+                                <de.hdodenhof.circleimageview.CircleImageView
+                                    xmlns:app="http://schemas.android.com/apk/res-auto"
+                                    android:id="@+id/profile_image"
+                                    android:layout_width="150dp"
+                                    android:layout_height="150dp"
+                                    android:layout_gravity="center"
+                                    android:layout_marginRight="5dp"
+                                    android:src="@drawable/header2"
+                                    android:translationZ="10dp" />
+                                <TextView
+                                    android:layout_marginTop="10dp"
+                                    android:text="刘一林"
+                                    android:textSize="14sp"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:gravity="center"
+                                    android:id="@+id/name"
+                                    android:textStyle="bold"/>
+                                <TextView
+                                    android:text="2018-4-27"
+                                    android:textSize="14sp"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:gravity="center"
+                                    android:id="@+id/time"
+                                    android:textStyle="bold"/>
+                            </LinearLayout>
+
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:orientation="vertical"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_weight="2"
+                            android:layout_margin="10dp"
+                            >
+                            <TextView
+                                android:text="西北工业大学"
+                                android:textSize="16sp"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:gravity="center"
+                                android:id="@+id/title"
+                                android:layout_marginTop="10dp"
+                                android:textStyle="bold"/>
+                            <TextView
+                                android:text="“每个人都以为自己很有耐心，自已会为某件事物某个人等待很长的一段世间，但是当他们回首的时候就会发现，原来自己的耐心只是那么短短的几个小时，又或者是短短的几天而已，这点时间和自己预计的是十年，一百年，甚至是一千年好像相差甚远，这些也许就是现实和梦想的距离。” "
+                                android:maxLines="10"
+                                android:textSize="16sp"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:id="@+id/content"
+                                android:ellipsize="end"
+                                />
+
+                        </LinearLayout>
+                    </LinearLayout>
+                </LinearLayout>
+
+
+                <LinearLayout
+                    android:paddingTop="10dp"
+                    android:paddingBottom="10dp"
+                    android:orientation="horizontal"
+                    android:id="@+id/various_counts_layout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <RelativeLayout
+                        android:id="@+id/recommend_layout"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1">
+
+                        <TextView
+                            android:id="@+id/read_count"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerHorizontal="true"
+                            android:text="10W+"
+                            android:layout_marginBottom="25dp"
+                            android:textColor="#303131"
+                            android:textSize="16sp" />
+
+                        <TextView
+                            android:id="@+id/recommend_count_text"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerHorizontal="true"
+                            android:text="已读"
+                            android:layout_alignParentBottom="true"
+                            android:textColor="#303131"
+                            android:textSize="16sp" />
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:id="@+id/read_layout"
+                        android:layout_weight="1"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content">
+
+                        <TextView
+                            android:id="@+id/like_count"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerHorizontal="true"
+                            android:text="10W+"
+                            android:layout_marginBottom="25dp"
+                            android:textColor="#303131"
+                            android:textSize="16sp" />
+
+                        <TextView
+                            android:id="@+id/read_count_text"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerHorizontal="true"
+                            android:text="点赞"
+                            android:layout_alignParentBottom="true"
+                            android:textColor="#303131"
+                            android:textSize="16sp" />
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:id="@+id/fans_layout"
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_height="wrap_content">
+
+                        <TextView
+                            android:id="@+id/comment_count"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerHorizontal="true"
+                            android:text="10W+"
+                            android:layout_marginBottom="25dp"
+                            android:textColor="#303131"
+                            android:textSize="16sp" />
+
+                        <TextView
+                            android:id="@+id/fans_count_text"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerHorizontal="true"
+                            android:text="评论"
+                            android:layout_alignParentBottom="true"
+                            android:textColor="#303131"
+                            android:textSize="16sp" />
+                    </RelativeLayout>
+                </LinearLayout>
+
+                <RelativeLayout
+                    android:id="@+id/periodical_comment_layout"
+                    android:paddingTop="5dp"
+                    android:paddingBottom="5dp"
+                    android:paddingStart="10dp"
+                    android:paddingEnd="10dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:id="@+id/comment_text"
+                        android:layout_alignBottom="@+id/write_comment_text"
+                        android:layout_alignTop="@+id/write_comment_text"
+                        android:gravity="center_vertical"
+                        android:layout_marginStart="20dp"
+                        android:text="评论"
+                        android:textStyle="bold"
+                        android:textSize="18sp"
+                        android:textColor="#303131"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+
+                    <TextView
+                        android:id="@+id/write_comment_text"
+                        android:layout_alignParentEnd="true"
+                        android:layout_alignParentTop="true"
+                        android:padding="5dp"
+                        android:text="写评论"
+                        android:gravity="center_vertical"
+                        android:textSize="18sp"
+                        android:textColor="#47bafe"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+
+                    <LinearLayout
+                        android:animateLayoutChanges="true"
+                        android:layout_below="@id/comment_text"
+                        android:orientation="vertical"
+                        android:id="@+id/comment_father_view_layout"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                    </LinearLayout>
+                </RelativeLayout>
+            </LinearLayout>
+        </ScrollView>
+    </LinearLayout>
+
+
+    <RelativeLayout
+        android:background="#f4f4f4"
+        android:padding="7dp"
+        android:id="@+id/bottom_nav_bar"
+        android:layout_alignParentBottom="true"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center">
+        <Button
+            android:id="@+id/read_btn"
+            android:text="阅读"
+            android:textColor="@color/black"
+            android:background="@drawable/preread_button_background_ripple"
+            android:layout_width="wrap_content"
+            android:layout_marginRight="20dp"
+            android:layout_height="30dp" />
+
+        <Button
+            android:id="@+id/like_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
+            android:layout_toEndOf="@+id/read_btn"
+            android:background="@drawable/buy_button_background_ripple"
+            android:text="点赞"
+            android:textColor="#ffffff" />
+    </RelativeLayout>
+
+</LinearLayout>

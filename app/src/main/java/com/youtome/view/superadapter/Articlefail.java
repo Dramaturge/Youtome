@@ -5,7 +5,7 @@ package com.youtome.view.superadapter;
  */
 
 public class Articlefail {
-    private String status;
+    public String status;
     private String reason;
     public String getReason() {
         return reason;

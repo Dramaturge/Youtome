@@ -4,7 +4,8 @@
     android:layout_width="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    >
 
     <android.support.v4.widget.NestedScrollView
 
@@ -21,14 +22,12 @@
                     android:layout_width="match_parent"
                     android:layout_height="10dp"
                     android:background="@color/gray_theme"></View>
-
                 <com.bigkoo.convenientbanner.ConvenientBanner
                     android:id="@+id/convenientBanner"
                     android:layout_width="match_parent"
                     android:layout_height="200dp"
                     app:canLoop="true"
                 />
-
                 <View
                     android:layout_width="match_parent"
                     android:layout_height="10dp"

@@ -115,7 +115,7 @@
                     android:text="查询"
                     android:layout_marginBottom="?attr/actionBarSize"
                     app:qmui_isRadiusAdjustBounds="true"
-                    app:qmui_backgroundColor="@color/black"
+                    app:qmui_backgroundColor="@color/s_app_color_black"
                     android:textColor="@color/gray_theme"
                     app:qmui_borderColor="@color/gray_theme"
                     />

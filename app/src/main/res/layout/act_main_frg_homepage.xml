@@ -4,12 +4,15 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:fitsSystemWindows="true"
+    android:background="@color/white"
     >
 
     <com.qmuiteam.qmui.widget.QMUITopBar
         android:id="@+id/topbar"
         android:layout_width="match_parent"
-        android:layout_height="?attr/qmui_topbar_height">
+        android:layout_height="?attr/qmui_topbar_height"
+        android:background="@color/white"
+        >
         <com.youtome.view.ClearEditText
             android:id="@+id/clearEditText"
             android:layout_width="match_parent"

@@ -146,7 +146,7 @@ public class MainActivityCirclesOfFriendsFragment extends Fragment implements Vi
                 TextView tv_status_publish_time =holder.getView(R.id.tv_status_publish_time);//发布时间
                 LinearLayout skip_to_detail=holder.getView(R.id.skip_to_detail);
                 TextView tv_status_content =holder.getView(R.id.tv_status_content);//内容
-                TextView tv_like_number =holder.getView(R.id.tv_like_number);//赞同数
+                TextView tv_like_number =holder.getView(R.id.tv_forward_number);//赞同数
                 TextView tv_comments_number =holder.getView(R.id.tv_comments_number);//评论数
 
                 profile_image.setImageDrawable(getResources().getDrawable(data.getHeader()));

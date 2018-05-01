@@ -5,14 +5,19 @@ import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
+import android.text.InputType;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.jaeger.library.StatusBarUtil;
+import com.qmuiteam.qmui.widget.dialog.QMUIDialog;
+import com.qmuiteam.qmui.widget.dialog.QMUIDialogAction;
+import com.youtome.tool.PrefTools;
 import com.youtome.view.CommentCardView;
 
 import de.hdodenhof.circleimageview.CircleImageView;
@@ -23,6 +28,7 @@ public class CommentsActivity extends AppCompatActivity implements View.OnClickL
     private Handler mHandler;
     private Button read_btn;
     private Button like_btn;
+    private Button forward_btn;
     Intent intent;
     private CircleImageView profile_image;
     private TextView name;
@@ -48,8 +54,10 @@ public class CommentsActivity extends AppCompatActivity implements View.OnClickL
         write_comment_text.setOnClickListener(this);
         read_btn = (Button) findViewById(R.id.read_btn);
         like_btn = (Button) findViewById(R.id.like_btn);
+        forward_btn=(Button)findViewById(R.id.forward_btn);
         read_btn.setOnClickListener(this);
         like_btn.setOnClickListener(this);
+        forward_btn.setOnClickListener(this);
         profile_image = (CircleImageView) findViewById(R.id.profile_image);
         name = (TextView) findViewById(R.id.name);
         time = (TextView) findViewById(R.id.time);
@@ -73,6 +81,7 @@ public class CommentsActivity extends AppCompatActivity implements View.OnClickL
         if(!isStatus){
             title.setVisibility(View.VISIBLE);
             title.setText(mtitle);
+            forward_btn.setVisibility(View.GONE);
         }
         if(isStatus){
             read_btn.setVisibility(View.GONE);
@@ -134,8 +143,32 @@ public class CommentsActivity extends AppCompatActivity implements View.OnClickL
                     like_btn.setText("点赞");
                 }
                 break;
+            case R.id.forward_btn:
+                showForwardDialog();
+                break;
         }
     }
 
-
+    private void showForwardDialog() {
+        final QMUIDialog.EditTextDialogBuilder builder = new QMUIDialog.EditTextDialogBuilder(CommentsActivity.this);
+        builder.setTitle("")
+                .setPlaceholder("转发理由")
+                .setInputType(InputType.TYPE_CLASS_TEXT)
+                .addAction("取消", new QMUIDialogAction.ActionListener() {
+                    @Override
+                    public void onClick(QMUIDialog dialog, int index) {
+                        dialog.dismiss();
+                    }
+                })
+                .addAction("发送", new QMUIDialogAction.ActionListener() {
+                    @Override
+                    public void onClick(QMUIDialog dialog, int index) {
+                        CharSequence text = builder.getEditText().getText();
+                            Toast.makeText(CommentsActivity.this, "已成功转发", Toast.LENGTH_SHORT).show();
+                            dialog.dismiss();
+                            //TODO:转发的逻辑
+                    }
+                })
+                .show();
+    }
 }

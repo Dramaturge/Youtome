@@ -54,7 +54,8 @@
         <activity android:name=".EditPortraitActivity" />
         <activity android:name=".CommentsActivity" />
         <activity android:name=".AccountActivity" />
-        <activity android:name=".AccountPasswordActivity"></activity>
+        <activity android:name=".AccountPasswordActivity" />
+        <activity android:name=".FriendsActivity"></activity>
     </application>
 
 </manifest>

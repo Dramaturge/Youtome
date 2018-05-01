@@ -79,13 +79,13 @@
                 android:layout_toRightOf="@+id/question_item_scan_img"
                 />
             <ImageView
-                android:id='@+id/iv_read'
-                android:src="@mipmap/read"
+                android:id='@+id/iv_forward'
+                android:src="@mipmap/forward"
                 android:layout_width="20dp"
                 android:layout_height="20dp"
                 android:layout_alignParentStart="true"/>
             <TextView
-                android:id="@+id/tv_read_number"
+                android:id="@+id/tv_forward_number"
                 android:layout_width="wrap_content"
                 android:layout_height="20dp"
                 android:text="100"

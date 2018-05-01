@@ -117,21 +117,21 @@ public class SearchActivity extends AppCompatActivity{
 
 
         QMUIGroupListView.newSection(SearchActivity.this)
-                .addItemView(mAboutGroupListView.createItemView("按学科搜索"), new View.OnClickListener() {
+                .addItemView(mAboutGroupListView.createItemView("按辅导学科搜索"), new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
                         final String Edit=mClearEditText.getText().toString();
                         doSearch(Edit);
                     }
                 })
-                .addItemView(mAboutGroupListView.createItemView("按地区搜索"), new View.OnClickListener() {
+                .addItemView(mAboutGroupListView.createItemView("按所在地区搜索"), new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
                         final String Edit=mClearEditText.getText().toString();
                         doSearch(Edit);
                     }
                 })
-                .addItemView(mAboutGroupListView.createItemView("按学校搜索"), new View.OnClickListener() {
+                .addItemView(mAboutGroupListView.createItemView("按所在学校搜索"), new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
                         final String Edit=mClearEditText.getText().toString();

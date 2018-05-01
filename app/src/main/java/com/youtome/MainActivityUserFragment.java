@@ -3,12 +3,16 @@ package com.youtome;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.AppBarLayout;
+import android.support.design.widget.CollapsingToolbarLayout;
 import android.support.v4.app.Fragment;
+import android.support.v4.widget.NestedScrollView;
+import android.support.v7.widget.Toolbar;
 import android.text.InputType;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -42,6 +46,7 @@ public class MainActivityUserFragment extends Fragment implements View.OnClickLi
     private QMUIRoundButton quit;
     private String Username;
     private String Token;
+    private RelativeLayout to_friends;
 
 
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -61,6 +66,8 @@ public class MainActivityUserFragment extends Fragment implements View.OnClickLi
         to_personal_information.setOnClickListener(this);
         this.to_about = (RelativeLayout) FindFragment.findViewById(R.id.to_about);
         to_about.setOnClickListener(this);
+        this.to_friends = (RelativeLayout) FindFragment.findViewById(R.id.to_friends);
+        to_friends.setOnClickListener(this);
         this.fans_count = (TextView) FindFragment.findViewById(R.id.fans_count);
         this.read_count = (TextView) FindFragment.findViewById(R.id.read_count);
         this.recommend_count = (TextView) FindFragment.findViewById(R.id.recommend_count);
@@ -100,7 +107,10 @@ public class MainActivityUserFragment extends Fragment implements View.OnClickLi
                 Intent intent2=new Intent(getContext(),EditInformationActivity.class);
                 startActivity(intent2);
                 break;
-
+            case R.id.to_friends:
+                Intent intent4=new Intent(getContext(),FriendsActivity.class);
+                startActivity(intent4);
+                break;
         }
 
     }
@@ -156,4 +166,6 @@ public class MainActivityUserFragment extends Fragment implements View.OnClickLi
                 })
                 .show();
     }
+
+
 }

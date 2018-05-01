@@ -296,8 +296,17 @@
             android:layout_width="wrap_content"
             android:layout_height="30dp"
             android:layout_toEndOf="@+id/read_btn"
+            android:layout_marginRight="20dp"
             android:background="@drawable/buy_button_background_ripple"
             android:text="点赞"
+            android:textColor="#ffffff" />
+        <Button
+            android:id="@+id/forward_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
+            android:layout_toEndOf="@+id/like_btn"
+            android:background="@drawable/buy_button_background_ripple"
+            android:text="转发"
             android:textColor="#ffffff" />
     </RelativeLayout>
 

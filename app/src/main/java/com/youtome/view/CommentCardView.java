@@ -101,7 +101,14 @@ public class CommentCardView extends RelativeLayout {
         mContent.setText(text);
         return this;
     }
-
+    public CommentCardView setCommenter(String commenter){
+        mName.setText(commenter);
+        return this;
+    }
+    public CommentCardView setTime(String time){
+        mDate.setText(time);
+        return this;
+    }
     public CommentCardView(Context context) {
         super(context);
         init();

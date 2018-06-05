@@ -7,24 +7,18 @@ import java.util.List;
  */
 
 public class Articlesuccess {
-    private String status;
+    public String status;
     public List<Articlesuccess.Detail> results;
     public static   class Detail{
-        public String name;
+        public String id;
+        public String username;
+        public String sourcer;
         public String time;
         public String title;
         public String content;
-        public String getName() {
-            return name;
-        }
-        public String getTime() {
-            return time;
-        }
-        public String getTitle() {
-            return title;
-        }
-        public String getContent() {
-            return content;
-        }
+        public String good;
+        public String comment;
+        public String transmit;
+
     }
 }

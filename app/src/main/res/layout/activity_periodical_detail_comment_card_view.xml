@@ -28,7 +28,7 @@
             android:layout_toEndOf="@id/user_portrait"
             android:textColor="#303131"
             android:layout_marginStart="5dp"
-            android:text="北冥有鱼"
+            android:text="系统评论"
             android:textSize="16sp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
@@ -45,7 +45,7 @@
             android:layout_alignStart="@id/user_name"
             android:layout_below="@id/user_name"
             android:layout_marginTop="10dp"
-            android:text="2017-7-30"
+            android:text="评论时间"
             android:textSize="13sp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />

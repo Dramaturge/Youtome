@@ -14,13 +14,24 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.gson.Gson;
 import com.jaeger.library.StatusBarUtil;
 import com.qmuiteam.qmui.widget.dialog.QMUIDialog;
 import com.qmuiteam.qmui.widget.dialog.QMUIDialogAction;
+import com.youtome.app.AppApplication;
 import com.youtome.tool.PrefTools;
 import com.youtome.view.CommentCardView;
+import com.youtome.view.superadapter.Articlefail;
+import com.youtome.view.superadapter.Commentsucess;
+
+import java.util.List;
 
 import de.hdodenhof.circleimageview.CircleImageView;
+import okhttp3.FormBody;
+import okhttp3.OkHttpClient;
+import okhttp3.Request;
+import okhttp3.RequestBody;
+import okhttp3.Response;
 
 public class CommentsActivity extends AppCompatActivity implements View.OnClickListener {
     private LinearLayout mCommentFatherLayout;
@@ -39,13 +50,21 @@ public class CommentsActivity extends AppCompatActivity implements View.OnClickL
     private TextView like_count;
     private TextView comment_count;
     private RelativeLayout bottom_nav_bar;
-
+    private String Username;
+    private  String Token;
+    private  String mname;
+    private  String id;
+    private String mcontent;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.act_comments);
         StatusBarUtil.setTranslucentForCoordinatorLayout(CommentsActivity.this,50);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        Username = PrefTools.getString(
+                AppApplication.getContext(), "User","");
+        Token = PrefTools.getString(
+                AppApplication.getContext(), "Token","");
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         mCommentFatherLayout = (LinearLayout) findViewById(R.id.comment_father_view_layout);
@@ -70,12 +89,60 @@ public class CommentsActivity extends AppCompatActivity implements View.OnClickL
 
         intent=getIntent();
         Boolean isStatus=intent.getBooleanExtra("isStatus",false);
-        String mcontent=intent.getStringExtra("content");
+        mcontent=intent.getStringExtra("content");
         String mtitle=intent.getStringExtra("title");
-        String mname=intent.getStringExtra("name");
+        mname=intent.getStringExtra("name");
         String mtime=intent.getStringExtra("time");
+        id=intent.getStringExtra("id");
+        String zf=intent.getStringExtra("zf");
+        String like=intent.getStringExtra("like");
+        String pl=intent.getStringExtra("pl");
+        like_count.setText(like);
+        read_count.setText(zf);
+        comment_count.setText(pl);
         content.setText(mcontent);
         time.setText(mtime);
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+
+                try{
+                    RequestBody requestBody =new FormBody.Builder().add("username",Username).add("token",Token).
+                            add("belong",mname).add("id",id).build();
+                    OkHttpClient client=new OkHttpClient();
+                    Request request=new Request.Builder().url("http://118.24.120.57:8080/education/getComment.php").post(requestBody).build();
+                    final Response response= client.newCall(request).execute();
+                    final String  reponseData=response.body().string();
+                    Gson gson=new Gson();
+                    Articlefail commentfail=gson.fromJson(reponseData,Articlefail.class);
+                    if(commentfail.status.equals("fail")){;}
+                    else{
+                        Gson gson1=new Gson();
+                    final Commentsucess commentsucess=gson1.fromJson(reponseData,Commentsucess.class);
+                    final List<Commentsucess.Detail> reason=commentsucess.results;
+                        runOnUiThread(new Runnable() {
+                            @Override
+                            public void run() {
+                                int i=reason.size();
+                                int n=0;
+
+
+                                while(i>0){
+                                CommentCardView cardView = new CommentCardView(CommentsActivity.this);
+                                cardView.setCommentText(reason.get(n).comment);
+                                cardView.setCommenter(reason.get(n).commenter);
+                                cardView.setTime("     ");
+                                mCommentFatherLayout.addView(cardView, 0);
+                                i=i-1;
+                                n=n+1;}
+
+                            }
+                        });}
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+        }).start();
         title.setVisibility(View.INVISIBLE);
         name.setText(mname);
         if(!isStatus){
@@ -91,8 +158,7 @@ public class CommentsActivity extends AppCompatActivity implements View.OnClickL
 
 
 
-        mCommentFatherLayout.addView(new CommentCardView(CommentsActivity.this));
-        mCommentFatherLayout.addView(new CommentCardView(CommentsActivity.this));
+
         mCommentFatherLayout.addView(new CommentCardView(CommentsActivity.this));
 
 
@@ -123,6 +189,42 @@ public class CommentsActivity extends AppCompatActivity implements View.OnClickL
                             mHandler.post(new Runnable() {
                                 @Override
                                 public void run() {
+                                    new Thread(new Runnable() {
+                                        @Override
+                                        public void run() {
+
+                                            try{
+                                                RequestBody requestBody =new FormBody.Builder().add("username",Username).add("token",Token).
+                                                        add("content",editTextContent).add("belong",mname).add("id",id).build();
+                                                OkHttpClient client=new OkHttpClient();
+                                                Request request=new Request.Builder().url("http://118.24.120.57:8080/education/commentArticle.php").post(requestBody).build();
+                                                final Response response= client.newCall(request).execute();
+                                                final String  reponseData=response.body().string();
+                                                Gson gson=new Gson();
+                                                Articlefail fail=gson.fromJson(reponseData,Articlefail.class);
+                                                final String why=fail.getReason();
+                                                if (fail.status.equals("fail"))
+                                                {
+                                                    runOnUiThread(new Runnable() {
+                                                        @Override
+                                                        public void run() {
+                                                            Toast.makeText(CommentsActivity.this, "评论失败   "+why, Toast.LENGTH_SHORT).show();
+                                                        }
+                                                    });
+
+                                                }
+                                                else{
+                                                    runOnUiThread(new Runnable() {
+                                                        @Override
+                                                        public void run() {
+                                                            Toast.makeText(CommentsActivity.this, "评论成功", Toast.LENGTH_SHORT).show();
+                                                        }
+                                                    });}
+                                            } catch (Exception e) {
+                                                e.printStackTrace();
+                                            }
+                                        }
+                                    }).start();
                                     CommentCardView cardView = new CommentCardView(CommentsActivity.this);
                                     cardView.setCommentText(editTextContent);
                                     mCommentFatherLayout.addView(cardView, 0);//在顶端添加评论
@@ -138,6 +240,42 @@ public class CommentsActivity extends AppCompatActivity implements View.OnClickL
                 break;
             case R.id.like_btn:
                 if(like_btn.getText().equals("点赞")){
+                    new Thread(new Runnable() {
+                        @Override
+                        public void run() {
+
+                            try{
+                                RequestBody requestBody =new FormBody.Builder().add("username",Username).add("token",Token).
+                                        add("belong",mname).add("id",id).add("type","3").build();
+                                OkHttpClient client=new OkHttpClient();
+                                Request request=new Request.Builder().url("http://118.24.120.57:8080/education/goodArticle.php").post(requestBody).build();
+                                final Response response= client.newCall(request).execute();
+                                final String  reponseData=response.body().string();
+                                Gson gson=new Gson();
+                                Articlefail fail=gson.fromJson(reponseData,Articlefail.class);
+                                final String why=fail.getReason();
+                                if (fail.status.equals("fail"))
+                                {
+                                    runOnUiThread(new Runnable() {
+                                        @Override
+                                        public void run() {
+                                            Toast.makeText(CommentsActivity.this, "失败   "+why, Toast.LENGTH_SHORT).show();
+                                        }
+                                    });
+
+                                }
+                                else{
+                                    runOnUiThread(new Runnable() {
+                                        @Override
+                                        public void run() {
+                                            Toast.makeText(CommentsActivity.this, "成功", Toast.LENGTH_SHORT).show();
+                                        }
+                                    });}
+                            } catch (Exception e) {
+                                e.printStackTrace();
+                            }
+                        }
+                    }).start();
                     like_btn.setText("已赞");
                 }else{
                     like_btn.setText("点赞");
@@ -164,9 +302,16 @@ public class CommentsActivity extends AppCompatActivity implements View.OnClickL
                     @Override
                     public void onClick(QMUIDialog dialog, int index) {
                         CharSequence text = builder.getEditText().getText();
-                            Toast.makeText(CommentsActivity.this, "已成功转发", Toast.LENGTH_SHORT).show();
+                            //Toast.makeText(CommentsActivity.this, "已成功转发", Toast.LENGTH_SHORT).show();
                             dialog.dismiss();
                             //TODO:转发的逻辑
+                        Intent intent=new Intent(CommentsActivity.this,SendStatusActivity.class);//跳转到这条状态的详细内容
+                        intent.putExtra("reason",text.toString());
+                        intent.putExtra("name",mname);
+                        intent.putExtra("id",id);
+                        intent.putExtra("content",mcontent);
+
+                        startActivity(intent);
                     }
                 })
                 .show();

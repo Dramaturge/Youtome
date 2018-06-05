@@ -125,7 +125,8 @@ public class OtherHomepageActivity extends AppCompatActivity {
                 "    晚上十点了，自习室里还是坐满了人，西电的学风就是好！",
                 "10",
                 "2",
-                "5"));
+                "5",
+        "4"));
         statusArrayList.add(new Status(
                 R.drawable.header2,
                 "刘一林(老师)",
@@ -133,7 +134,8 @@ public class OtherHomepageActivity extends AppCompatActivity {
                 "    谢谢大家的配合，如果大家对我讲的课有什么意见和建议，欢迎给我留言。",
                 "100",
                 "0",
-                "30"));
+                "30",
+                "5"));
         statusArrayList.add(new Status(
                 R.drawable.header2,
                 "刘一林(老师)",
@@ -141,7 +143,8 @@ public class OtherHomepageActivity extends AppCompatActivity {
                 "    明天晚上九点我计划给大家讲一节圆锥曲线专题，大家可以小小的期待一下哦！",
                 "50",
                 "25",
-                "20"));
+                "20",
+                "4"));
         statusArrayList.add(new Status(
                 R.drawable.header2,
                 "刘一林(老师)",
@@ -149,7 +152,8 @@ public class OtherHomepageActivity extends AppCompatActivity {
                 "    大家好，我是来自西安电子科技大学的刘一林。请大家多多关照。如果大家在数学学习上遇到什么困难，可以来问我。",
                 "50",
                 "0",
-                "20"));
+                "20",
+                "5"));
 
         app_bar.addOnOffsetChangedListener(new AppBarLayout.OnOffsetChangedListener() {
             @Override

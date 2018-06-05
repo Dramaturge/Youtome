@@ -10,6 +10,8 @@ import android.view.View;
 import com.jaeger.library.StatusBarUtil;
 import com.qmuiteam.qmui.widget.grouplist.QMUICommonListItemView;
 import com.qmuiteam.qmui.widget.grouplist.QMUIGroupListView;
+import com.youtome.app.AppApplication;
+import com.youtome.tool.PrefTools;
 
 /**
  *我（MainActivityUserFragment）→账号与安全
@@ -18,13 +20,15 @@ import com.qmuiteam.qmui.widget.grouplist.QMUIGroupListView;
 public class AccountActivity extends AppCompatActivity {
     private Toolbar toolbar;
     QMUIGroupListView mGroupListView;
-
+    private String Username;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.act_account);
         StatusBarUtil.setTranslucentForCoordinatorLayout(AccountActivity.this,50);
+        Username = PrefTools.getString(
+                AppApplication.getContext(), "User","");
         toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
@@ -44,7 +48,7 @@ public class AccountActivity extends AppCompatActivity {
 
     private void initGroupListView() {
         QMUICommonListItemView itemWithDetail = mGroupListView.createItemView("当前账号");
-        itemWithDetail.setDetailText("xpt");
+        itemWithDetail.setDetailText(Username);
         QMUICommonListItemView itemWithChevron = mGroupListView.createItemView("修改密码");
         itemWithChevron.setAccessoryType(QMUICommonListItemView.ACCESSORY_TYPE_CHEVRON);
 

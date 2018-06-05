@@ -17,18 +17,28 @@ import android.widget.Toast;
 import com.google.gson.Gson;
 import com.jaeger.library.StatusBarUtil;
 import com.rengwuxian.materialedittext.MaterialEditText;
+import com.youtome.app.AppApplication;
+import com.youtome.tool.PrefTools;
+import com.youtome.view.superadapter.Articlefail;
+import com.youtome.view.superadapter.Articlesuccess;
+import com.youtome.view.superadapter.Getusersucess;
 import com.youtome.view.superadapter.Publish;
+
+import java.util.List;
 
 import okhttp3.FormBody;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.RequestBody;
 import okhttp3.Response;
+
+import static com.lzy.okgo.utils.HttpUtils.runOnUiThread;
+
 /**
  *我（MainActivityUserFragment）→编辑个人资料
  * */
 public class EditInformationActivity extends AppCompatActivity implements View.OnClickListener {
-
+    private List<Getusersucess.Detail> reason;
     private MaterialEditText met_nick_name;
     private MaterialEditText met_signature;
     private MaterialEditText met_school;
@@ -41,16 +51,65 @@ public class EditInformationActivity extends AppCompatActivity implements View.O
     private MaterialEditText met_phone;
     private MaterialEditText met_email;
     private Button privacy_xy;
-
+    private String Username;
+    private String Token;
+    private String nickname;
+    private String signature;
+    private String school;
+    private String sex;
+    private String birthday;
+    private String area;
+    private String year;
+    private String major;
+    private String area_aim;
+    private String phone;
+    private String email;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.act_edit_information);
+        Username = PrefTools.getString(
+                AppApplication.getContext(), "User","");
+        Token = PrefTools.getString(
+                AppApplication.getContext(), "Token","");
         StatusBarUtil.setTranslucentForCoordinatorLayout(EditInformationActivity.this,50);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         initView();
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                try{
+                    RequestBody requestBody =new FormBody.Builder().add("username",Username).add("token",Token).build();
+                    OkHttpClient client=new OkHttpClient();
+                    Request request=new Request.Builder().url("http://118.24.120.57:8080/education/getUserInfo.php").post(requestBody).build();
+                    final Response response= client.newCall(request).execute();
+                    final String  reponseData=response.body().string();
+                    Gson gson=new Gson();
+                    Getusersucess getusersucess=gson.fromJson(reponseData,Getusersucess.class);
+                    reason=getusersucess.results;
+                    runOnUiThread(new Runnable() {
+                        @Override
+                        public void run() {
+                            met_nick_name.setText(reason.get(0).nickname);
+                            met_signature.setText(reason.get(0).signature);
+                            met_school.setText(reason.get(0).school);
+                            met_gender.setText(reason.get(0).sex);
+                            met_birth_date.setText(reason.get(0).birthday);
+                            met_region.setText(reason.get(0).area);
+                            met_phone.setText(reason.get(0).phone);
+                            met_entrance_date.setText(reason.get(0).year);
+                            met_intention_region.setText(reason.get(0).area_aim);
+                            met_intention_major.setText(reason.get(0).major);
+                            met_email.setText(reason.get(0).email);
+                        }
+                    });
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+        }).start();
     }
 
     //生成菜单
@@ -66,8 +125,44 @@ public class EditInformationActivity extends AppCompatActivity implements View.O
                 finish();
                 break;
             case R.id.tick_icon:
+                nickname=met_nick_name.getText().toString();
+                sex=met_gender.getText().toString();
+                school=met_school.getText().toString();
+                signature=met_signature.getText().toString();
+                PrefTools.setString(EditInformationActivity.this,"personal_signal",signature);
+                year=met_entrance_date.getText().toString();
+                birthday=met_birth_date.getText().toString();
+                email=met_email.getText().toString();
+                phone=met_phone.getText().toString();
+                area=met_region.getText().toString();
+                area_aim=met_intention_region.getText().toString();
+                major=met_intention_major.getText().toString();
+                new Thread(new Runnable() {
+                    @Override
+                    public void run() {
+                        try{
+                            RequestBody requestBody =new FormBody.Builder().add("username",Username).add("token",Token).
+                                    add("nickname",nickname).add("sex",sex).add("school",school).add("signature",signature).add("year",year).add("area",area).add("area_aim",area_aim).add("birthday",birthday).add("major",major).add("phone",phone).add("email",email).build();
+                            OkHttpClient client=new OkHttpClient();
+                            Request request=new Request.Builder().url("http://118.24.120.57:8080/education/perfect_info.php").post(requestBody).build();
+                            final Response response= client.newCall(request).execute();
+                            final String  reponseData=response.body().string();
+                            Gson gson=new Gson();
+                            Articlefail fail=gson.fromJson(reponseData,Articlefail.class);
+                            final String why=fail.getReason();
+                            runOnUiThread(new Runnable() {
+                                @Override
+                                public void run() {
+                                    Toast.makeText(EditInformationActivity.this, "修改成功", Toast.LENGTH_SHORT).show();
+                                }
+                            });
+                        } catch (Exception e) {
+                            e.printStackTrace();
+                        }
+                    }
+                }).start();
                 finish();
-                Toast.makeText(EditInformationActivity.this, "修改成功", Toast.LENGTH_SHORT).show();
+
                 break;
 
         }

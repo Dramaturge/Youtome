@@ -176,6 +176,7 @@ public class MainActivityCirclesOfFriendsFragment extends Fragment implements Vi
                         k=k-1;}
                         else{
                             break;
+
                         }
                     }
                     adapter=new CommonAdapter<Status>(getContext(), R.layout.item_status, statusArrayList){
